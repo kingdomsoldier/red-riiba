@@ -1,0 +1,46 @@
+{
+  "ContactPage": {
+    "metaTitle": "Contact",
+    "metaDescription": "Reach out for inquiries, collaborations or membership in RED-RIIBA.",
+
+    "headerBadge": "Contact",
+    "headerTitle": "Get in touch with us",
+    "headerSubtitle": "Fill out the form and we will get back to you as soon as possible. You can also write to us directly by email.",
+
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your full name",
+      "email": "Email",
+      "emailPlaceholder": "you@email.com",
+      "institution": "Institution / Organization",
+      "institutionPlaceholder": "Name of your institution (optional)",
+      "subject": "Subject",
+      "subjects": {
+        "general": "General inquiry",
+        "membership": "Membership",
+        "collaboration": "Collaboration",
+        "press": "Press",
+        "other": "Other"
+      },
+      "message": "Message",
+      "messagePlaceholder": "Tell us how we can help you...",
+      "consent": "I agree that my data will be processed according to the privacy policy.",
+      "submit": "Send message",
+      "submitting": "Sending...",
+      "successTitle": "Message sent!",
+      "successMessage": "We have received your message. We will contact you as soon as possible.",
+      "sendAnother": "Send another message",
+      "errorTitle": "Something went wrong",
+      "errorMessage": "We couldn't send your message. Please try again later."
+    },
+
+    "info": {
+      "emailLabel": "Write to us",
+      "locationLabel": "Location",
+      "locationValue": "Ciego de Ávila, Cuba",
+      "followLabel": "Follow us",
+      "institutionsLabel": "Are you an institution?",
+      "institutionsText": "If your university or research center wants to join the network, write to us indicating your interest in the subject line."
+    }
+  }
+}
