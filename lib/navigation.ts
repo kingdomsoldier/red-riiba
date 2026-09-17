@@ -4,7 +4,7 @@ export const navLinks = [
   { key: "about", href: "/about" },
   { key: "publications", href: "/publicaciones" },
   { key: "members", href: "/members" },
-  { key: "contact", href: "/contacto" },
+  { key: "contact", href: "/contact" },
 ] as const;
 
 // Redes sociales (el label es el mismo en ambos idiomas, solo se traduce el aria-label)

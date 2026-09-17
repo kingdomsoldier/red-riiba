@@ -7,6 +7,10 @@
     "members": {
       "title": "Instituciones miembros",
       "subtitle": "Universidades y centros de investigación que conforman la red."
+    },
+    "contact": {
+      "title": "Contacto",
+      "subtitle": "Escríbenos para consultas, colaboraciones o membresía."
     }
   }
 }

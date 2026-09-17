@@ -13,7 +13,7 @@ export default getRequestConfig(async () => {
 
   const locale = paramValue;
 
-  const [common, navigation, social, footer, home, about, pageHero, members] =
+  const [common, navigation, social, footer, home, about, pageHero, members, contact] =
     await Promise.all([
       import(`../messages/${locale}/common.json`),
       import(`../messages/${locale}/navigation.json`),
@@ -23,6 +23,7 @@ export default getRequestConfig(async () => {
       import(`../messages/${locale}/about.json`),
       import(`../messages/${locale}/pageHero.json`),
       import(`../messages/${locale}/members.json`),
+      import(`../messages/${locale}/contact.json`),
     ]);
 
   const messages = {
@@ -34,6 +35,7 @@ export default getRequestConfig(async () => {
     ...about.default,
     ...pageHero.default,
     ...members.default,
+    ...contact.default,
   };
 
   return { locale, messages };
