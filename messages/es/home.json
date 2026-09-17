@@ -1,0 +1,46 @@
+{
+  "HomePage": {
+    "heroBadge": "Red Internacional de Investigación",
+    "heroTitleLine1": "Una Sola Salud",
+    "heroTitleLine2": "Un Bienestar",
+    "heroSubtitle": "RED-RIIBA articula instituciones académicas, científicas y gubernamentales de varios países para promover la investigación, formación y cooperación internacional en Bienestar Animal y sostenibilidad alimentaria.",
+    "heroCtaPrimary": "Conocer la Red",
+    "heroCtaSecondary": "Únete",
+
+    "aboutBadge": "Sobre RED-RIIBA",
+    "aboutTitle": "Una red académica comprometida con el bienestar animal",
+    "aboutDescription1": "La Red Internacional de Investigación en Bienestar Animal es una red académica y científica integrada por instituciones de educación superior, centros de investigación, entidades gubernamentales y organizaciones afines.",
+    "aboutDescription2": "Constituida en La Habana en febrero de 2026, RED-RIIBA promueve soluciones interdisciplinarias y sostenibles que contribuyen a la salud animal, la bioseguridad, la soberanía y la seguridad alimentaria bajo el enfoque \"Una Sola Salud – Un Bienestar\".",
+    "aboutQuote": "\"El Bienestar Animal es un componente esencial de la ética social, la salud pública y la sostenibilidad de los sistemas alimentarios.\"",
+
+    "statsCountries": "Países miembros",
+    "statsInstitutions": "Instituciones aliadas",
+    "statsLines": "Líneas de trabajo",
+    "statsFounded": "Año de fundación",
+
+    "workBadge": "Nuestro Trabajo",
+    "workTitle": "Objetivos y líneas de trabajo",
+    "workSubtitle": "Una red que investiga, forma y coopera para transformar el bienestar animal en la práctica.",
+    "workParagraph1": "RED-RIIBA articula su trabajo en torno a seis objetivos estratégicos que orientan su acción: el fortalecimiento científico, la formación de profesionales, la movilidad e intercambio entre instituciones, la información y visibilidad de los resultados, la participación en políticas públicas y la cooperación al desarrollo. Estos objetivos se concretan en diez líneas de investigación y cooperación que abarcan desde el diagnóstico fisiológico avanzado y el enfoque \"Una Sola Salud – Un Bienestar\" hasta la sostenibilidad alimentaria, el mejoramiento genético, la ingeniería informática aplicada y la legislación en bienestar animal.",
+    "workParagraph2": "El resultado es una red que no solo investiga, sino que forma, divulga, incide y acompaña a instituciones de terceros países. Cada línea de trabajo es una puerta abierta a la colaboración académica y científica entre los miembros.",
+    "workChipsLabel": "Áreas clave",
+    "workChips": {
+      "research": "Investigación",
+      "training": "Formación",
+      "mobility": "Movilidad",
+      "visibility": "Divulgación",
+      "policy": "Políticas públicas",
+      "cooperation": "Cooperación"
+    },
+
+    "membersBadge": "Alcance Internacional",
+    "membersTitle": "Países e instituciones miembros",
+    "membersSubtitle": "Una red que conecta universidades, centros de investigación y entidades gubernamentales de América Latina, el Caribe y África.",
+
+    "joinBadge": "Únete a la Red",
+    "joinTitle": "Su institución puede ser parte de RED-RIIBA",
+    "joinSubtitle": "Invitamos a universidades, centros de investigación y entidades gubernamentales vinculadas al Bienestar Animal a sumarse a nuestra red internacional de cooperación académica y científica.",
+    "joinCta": "Conocer el proceso",
+    "closingTagline": "Una Sola Salud, Un Bienestar"
+  }
+}

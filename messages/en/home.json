@@ -1,0 +1,46 @@
+{
+  "HomePage": {
+    "heroBadge": "International Research Network",
+    "heroTitleLine1": "One Health",
+    "heroTitleLine2": "One Welfare",
+    "heroSubtitle": "RED-RIIBA brings together academic, scientific and governmental institutions from multiple countries to promote research, training and international cooperation in Animal Welfare and food sustainability.",
+    "heroCtaPrimary": "Learn about the Network",
+    "heroCtaSecondary": "Join",
+
+    "aboutBadge": "About RED-RIIBA",
+    "aboutTitle": "An academic network committed to animal welfare",
+    "aboutDescription1": "The International Animal Welfare Research Network is an academic and scientific network made up of higher education institutions, research centers, government entities and related organizations.",
+    "aboutDescription2": "Established in Havana in February 2026, RED-RIIBA promotes interdisciplinary and sustainable solutions that contribute to animal health, biosecurity, sovereignty and food security under the \"One Health – One Welfare\" approach.",
+    "aboutQuote": "\"Animal Welfare is an essential component of social ethics, public health and the sustainability of food systems.\"",
+
+    "statsCountries": "Member countries",
+    "statsInstitutions": "Partner institutions",
+    "statsLines": "Work lines",
+    "statsFounded": "Year founded",
+
+    "workBadge": "Our Work",
+    "workTitle": "Objectives and work lines",
+    "workSubtitle": "A network that researches, trains and cooperates to transform animal welfare into practice.",
+    "workParagraph1": "RED-RIIBA structures its work around six strategic objectives: scientific strengthening, professional training, mobility and exchange between institutions, information and visibility of results, public policy participation, and development cooperation. These objectives are materialized in ten research and cooperation lines that span from advanced physiological diagnosis and the \"One Health – One Welfare\" approach to food sustainability, genetic improvement, applied computer engineering and animal welfare legislation.",
+    "workParagraph2": "The result is a network that not only researches, but also trains, disseminates, advocates and supports institutions from third countries. Each work line is an open door to academic and scientific collaboration among members.",
+    "workChipsLabel": "Key areas",
+    "workChips": {
+      "research": "Research",
+      "training": "Training",
+      "mobility": "Mobility",
+      "visibility": "Outreach",
+      "policy": "Public policy",
+      "cooperation": "Cooperation"
+    },
+
+    "membersBadge": "International Reach",
+    "membersTitle": "Member countries and institutions",
+    "membersSubtitle": "A network connecting universities, research centers and government entities from Latin America, the Caribbean and Africa.",
+
+    "joinBadge": "Join the Network",
+    "joinTitle": "Your institution can be part of RED-RIIBA",
+    "joinSubtitle": "We invite universities, research centers and government entities linked to Animal Welfare to join our international network for academic and scientific cooperation.",
+    "joinCta": "Learn about the process",
+    "closingTagline": "One Health, One Welfare"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "AboutPage": {
+    "metaTitle": "Nosotros",
+    "metaDescription": "Red Internacional de Investigación en Bienestar Animal. Conoce nuestra misión, objetivos y áreas de investigación.",
+
+    "areasBadge": "Áreas de Investigación",
+    "areasTitle": "Líneas de investigación y cooperación",
+    "areasSubtitle": "Quince áreas estratégicas que articulan la investigación aplicada, la formación y la incidencia en políticas públicas de Bienestar Animal.",
+
+    "areas": {
+      "physiologicalDiagnosis": {
+        "title": "Diagnósticos fisiológicos",
+        "description": "Desarrollo y empleo de dispositivos avanzados para la detección de parásitos gastrointestinales y otros indicadores de salud animal."
+      },
+      "animalHealth": {
+        "title": "Salud y bienestar animal",
+        "description": "Uso de productos naturales con el enfoque «Una Sola Salud – Un Bienestar» para la prevención y tratamiento de enfermedades."
+      },
+      "nutritionEducation": {
+        "title": "Educación nutricional",
+        "description": "Desarrollo de programas educativos sobre manejo y nutrición animal."
+      },
+      "foodSustainability": {
+        "title": "Sostenibilidad alimentaria",
+        "description": "Estrategias para garantizar la producción de alimentos de alta calidad y seguros."
+      },
+      "geneticImprovement": {
+        "title": "Mejoramiento genético",
+        "description": "Investigación para el mejoramiento genético y creación de sementales resistentes a infecciones gástricas."
+      },
+      "reproductionBiotech": {
+        "title": "Reproducción animal y biotecnología",
+        "description": "Técnicas avanzadas para mejorar la eficiencia reproductiva: inseminación artificial, transferencia de embriones, criopreservación y selección genética."
+      },
+      "computerEngineering": {
+        "title": "Ingeniería informática aplicada",
+        "description": "Soluciones digitales para la optimización de los sistemas de producción, el bienestar animal y la sostenibilidad alimentaria."
+      },
+      "waterManagement": {
+        "title": "Gestión del agua",
+        "description": "Diseño y optimización de sistemas de abastecimiento y distribución de agua para animales y acuicultura."
+      },
+      "wastewaterManagement": {
+        "title": "Manejo de aguas residuales",
+        "description": "Sistemas de tratamiento en granjas para reducir la contaminación y proteger los recursos hídricos."
+      },
+      "predictiveModels": {
+        "title": "Modelos predictivos y análisis de datos",
+        "description": "Modelos matemáticos y análisis de datos para predecir enfermedades y optimizar la producción."
+      },
+      "resourceOptimization": {
+        "title": "Optimización de recursos",
+        "description": "Algoritmos para la gestión eficiente de recursos en sistemas de producción animal."
+      },
+      "infrastructureDesign": {
+        "title": "Diseño de infraestructura",
+        "description": "Planificación de instalaciones adecuadas para el alojamiento y manejo de animales con condiciones óptimas de bienestar."
+      },
+      "sustainableConstruction": {
+        "title": "Construcción sostenible",
+        "description": "Materiales y técnicas ecológicas compatibles en el desarrollo de infraestructuras para la producción animal."
+      },
+      "socialImpact": {
+        "title": "Impacto social y cultural",
+        "description": "Estudios sobre cómo las prácticas inadecuadas de bienestar animal afectan a las comunidades locales y su economía."
+      },
+      "legislation": {
+        "title": "Legislación y políticas",
+        "description": "Investigación y promoción de leyes y políticas que mejoren el bienestar animal."
+      }
+    }
+  }
+}

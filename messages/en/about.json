@@ -1,0 +1,73 @@
+{
+  "AboutPage": {
+    "metaTitle": "About Us",
+    "metaDescription": "International Animal Welfare Research Network. Learn about our mission, objectives and research areas.",
+
+    "areasBadge": "Research Areas",
+    "areasTitle": "Research and cooperation lines",
+    "areasSubtitle": "Fifteen strategic areas that articulate applied research, training and advocacy in Animal Welfare public policies.",
+
+    "areas": {
+      "physiologicalDiagnosis": {
+        "title": "Physiological diagnostics",
+        "description": "Development and use of advanced devices for the detection of gastrointestinal parasites and other animal health indicators."
+      },
+      "animalHealth": {
+        "title": "Animal health and welfare",
+        "description": "Use of natural products under the \"One Health – One Welfare\" approach for disease prevention and treatment."
+      },
+      "nutritionEducation": {
+        "title": "Nutritional education",
+        "description": "Development of educational programs on animal management and nutrition."
+      },
+      "foodSustainability": {
+        "title": "Food sustainability",
+        "description": "Strategies to guarantee high-quality and safe food production."
+      },
+      "geneticImprovement": {
+        "title": "Genetic improvement",
+        "description": "Research for genetic improvement and creation of breeding stock resistant to gastric infections."
+      },
+      "reproductionBiotech": {
+        "title": "Animal reproduction and biotechnology",
+        "description": "Advanced techniques to improve reproductive efficiency: artificial insemination, embryo transfer, cryopreservation and genetic selection."
+      },
+      "computerEngineering": {
+        "title": "Applied computer engineering",
+        "description": "Digital solutions for the optimization of production systems, animal welfare and food sustainability."
+      },
+      "waterManagement": {
+        "title": "Water management",
+        "description": "Design and optimization of water supply and distribution systems for animals and aquaculture."
+      },
+      "wastewaterManagement": {
+        "title": "Wastewater management",
+        "description": "Farm wastewater treatment systems to reduce pollution and protect water resources."
+      },
+      "predictiveModels": {
+        "title": "Predictive models and data analysis",
+        "description": "Mathematical models and data analysis to predict diseases and optimize production."
+      },
+      "resourceOptimization": {
+        "title": "Resource optimization",
+        "description": "Algorithms for efficient resource management in animal production systems."
+      },
+      "infrastructureDesign": {
+        "title": "Infrastructure design",
+        "description": "Planning of adequate facilities for animal housing and handling with optimal welfare conditions."
+      },
+      "sustainableConstruction": {
+        "title": "Sustainable construction",
+        "description": "Ecological materials and techniques compatible with the development of animal production infrastructure."
+      },
+      "socialImpact": {
+        "title": "Social and cultural impact",
+        "description": "Studies on how inadequate animal welfare practices affect local communities and their economy."
+      },
+      "legislation": {
+        "title": "Legislation and policies",
+        "description": "Research and promotion of laws and policies that improve animal welfare."
+      }
+    }
+  }
+}

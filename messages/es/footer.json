@@ -1,0 +1,16 @@
+{
+  "Footer": {
+    "description": "Promoviendo el bienestar animal en el ámbito universitario. Únete a nuestra red de estudiantes, docentes y voluntarios comprometidos con el cuidado responsable de los animales.",
+    "quickLinks": "Enlaces Rápidos",
+    "relatedLinks": "Enlaces Relacionados",
+    "contact": "Contacto",
+    "copyright": "© {year} {name}. Todos los derechos reservados.",
+    "links": {
+      "policies": "Políticas",
+      "faq": "Preguntas Frecuentes",
+      "transparency": "Transparencia",
+      "unica": "UNICA Universidad de Ciego de Ávila",
+      "catedra": "Cátedra de Bienestar Animal"
+    }
+  }
+}

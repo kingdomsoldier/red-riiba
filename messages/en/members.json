@@ -1,0 +1,13 @@
+{
+  "MembersPage": {
+    "metaTitle": "Members",
+    "metaDescription": "Universities and research centers that are members of RED-RIIBA.",
+
+    "introBadge": "International Network",
+    "introTitle": "Institutions that make up the network",
+    "introSubtitle": "Universities, research centers and government entities from Latin America, the Caribbean and Africa united by animal welfare.",
+
+    "institutionsCount": "{count, plural, =1 {1 institution} other {# institutions}}",
+    "visitWebsite": "Visit website"
+  }
+}

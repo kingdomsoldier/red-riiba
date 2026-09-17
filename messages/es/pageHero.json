@@ -1,0 +1,12 @@
+{
+  "PageHeroes": {
+    "about": {
+      "title": "Sobre nuestra red",
+      "subtitle": "Red académica y científica para transformar el bienestar animal en la práctica."
+    },
+    "members": {
+      "title": "Instituciones miembros",
+      "subtitle": "Universidades y centros de investigación que conforman la red."
+    }
+  }
+}

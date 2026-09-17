@@ -1,0 +1,16 @@
+{
+  "Footer": {
+    "description": "Promoting animal welfare in the university environment. Join our network of students, teachers and volunteers committed to responsible animal care.",
+    "quickLinks": "Quick Links",
+    "relatedLinks": "Related Links",
+    "contact": "Contact",
+    "copyright": "© {year} {name}. All rights reserved.",
+    "links": {
+      "policies": "Policies",
+      "faq": "Frequently Asked Questions",
+      "transparency": "Transparency",
+      "unica": "UNICA University of Ciego de Ávila",
+      "catedra": "Animal Welfare Chair"
+    }
+  }
+}
