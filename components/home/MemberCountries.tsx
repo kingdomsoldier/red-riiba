@@ -1,6 +1,8 @@
 import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import Container from "@/components/ui/Container";
 import { memberCountries } from "@/lib/data/memberCountries";
+import { slugify } from "@/lib/utils";
 
 export default async function MemberCountries() {
   const t = await getTranslations("HomePage");
@@ -24,9 +26,10 @@ export default async function MemberCountries() {
         {/* Grid de países */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {memberCountries.map((country) => (
-            <div
+            <Link
               key={country.country}
-              className="p-6 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-riiba-orange/40 transition-all duration-300"
+              href={`/members#${slugify(country.country)}`}
+              className="block p-6 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-riiba-orange/40 transition-all duration-300"
             >
               <div className="flex items-center gap-3 mb-4">
                 <h3 className="text-xl font-semibold text-riiba-orange">
@@ -40,24 +43,13 @@ export default async function MemberCountries() {
                     className="flex items-start gap-2"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-riiba-orange mt-2 shrink-0" />
-                    {institution.website ? (
-                      <a
-                        href={institution.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm text-white/70 hover:text-riiba-orange transition-colors"
-                      >
-                        {institution.name}
-                      </a>
-                    ) : (
-                      <span className="text-sm text-white/70">
-                        {institution.name}
-                      </span>
-                    )}
+                    <span className="text-sm text-white/70">
+                      {institution.name}
+                    </span>
                   </li>
                 ))}
               </ul>
-            </div>
+            </Link>
           ))}
         </div>
       </Container>

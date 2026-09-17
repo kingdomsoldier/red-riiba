@@ -1,0 +1,19 @@
+# Licencia
+
+Este proyecto utiliza un esquema de **doble licencia** para diferenciar el código del contenido editorial.
+
+## Código fuente
+
+Todo el código fuente (componentes, páginas, configuración, etc.) está licenciado bajo la **Licencia MIT**.
+
+Consulta el texto completo en: [LICENSES/MIT.txt](LICENSES/MIT.txt)
+
+## Contenido editorial
+
+Todo el contenido textual (archivos .mdx en el directorio `content/`, traducciones en `messages/`, y documentación) está licenciado bajo **Creative Commons Atribución 4.0 Internacional (CC BY 4.0)**.
+
+Consulta el texto completo en: [LICENSES/CC-BY-4.0.txt](LICENSES/CC-BY-4.0.txt)
+
+---
+
+Para cualquier consulta sobre el uso de este proyecto, contacta con: redriiba01@gmail.com
