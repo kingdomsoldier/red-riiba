@@ -39,7 +39,6 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <Header />
           <main className="flex-1">
-            <PageHero />          {/* ← NUEVO */}
             {children}
             <PageClosing/>
           </main>
