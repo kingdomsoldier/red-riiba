@@ -20,7 +20,7 @@ RED-RIIBA es una red internacional que promueve la investigación, formación y 
 - ⚡ **Server Components** — Páginas renderizadas en servidor para SEO y rendimiento.
 - 🎨 **Sistema de diseño propio** — Tokens de color, tipografía y componentes reutilizables.
 - 📝 **Contenido editorial en MDX** — Secciones largas (como *Nosotros*) se escriben en Markdown.
-- 🧩 **PageHero dinámico** — Cabeceras de página auto-configuradas por ruta.
+- 🧩 **PageIntro dinámico** — Introducción de página auto-configurada por ruta.
 - 🏛️ **Página de miembros** — Grid de instituciones internacionales con logos y enlaces.
 - 📱 **Diseño responsive** — Mobile-first, adaptable a cualquier tamaño.
 - 🌗 **Preparado para backend** — Estructura lista para integrarse con una API NestJS.
@@ -43,14 +43,13 @@ RED-RIIBA es una red internacional que promueve la investigación, formación y 
 ---
 
 ## 📁 Estructura del proyecto
-
 ```
 frontend/
 ├── app/
 │   ├── [locale]/                # Rutas internacionalizadas (es / en)
 │   │   ├── about/               # Página "Nosotros"
 │   │   ├── members/             # Página "Miembros"
-│   │   ├── layout.tsx           # Layout raíz con Header/Footer/PageHero
+│   │   ├── layout.tsx           # Layout raíz con Header/Footer/PageIntro
 │   │   └── page.tsx             # Home
 │   ├── globals.css              # Tokens de diseño + Tailwind
 │   └── icon.png
@@ -59,7 +58,7 @@ frontend/
 │   ├── about/                   # Componentes de la página Nosotros
 │   ├── content/                 # Renderizador MDX
 │   ├── home/                    # Secciones de la home
-│   ├── layout/                  # Header, Footer, PageHero, etc.
+│   ├── layout/                  # Header, Footer, PageIntro, etc.
 │   ├── members/                 # Componentes de la página Miembros
 │   └── ui/                      # Componentes base (Button, Container)
 │
@@ -84,7 +83,6 @@ frontend/
 └── public/
     └── images/                  # Assets estáticos
 ```
-
 ---
 
 ## 🚀 Empezando
@@ -96,17 +94,10 @@ frontend/
 
 ### Instalación
 
-```bash
-# 1. Clona el repositorio
 git clone https://github.com/kingdomsoldier/red-riiba.git
 cd red-riiba/frontend
-
-# 2. Instala las dependencias
 yarn install
-
-# 3. Arranca el servidor de desarrollo
 yarn dev
-```
 
 Abre [http://localhost:3000](http://localhost:3000). El sitio redirige automáticamente a `/es` (idioma por defecto).
 
@@ -130,7 +121,6 @@ El proyecto soporta dos locales: **español** (`es`, por defecto) y **inglés** 
 ### Estructura de traducciones
 
 Cada idioma tiene su carpeta en `messages/`:
-
 ```
 messages/
 ├── es/
@@ -139,31 +129,29 @@ messages/
 │   ├── home.json           # Textos de la home
 │   ├── about.json          # Textos de "Nosotros"
 │   ├── members.json        # Textos de "Miembros"
-│   ├── pageHero.json       # Cabeceras de página (auto-detectadas por ruta)
+│   ├── contact.json        # Textos de "Contacto"
 │   ├── footer.json
 │   └── social.json
 └── en/
     └── ...
 ```
-
 **Cómo añadir una nueva página:**
 
 1. Crea `app/[locale]/mi-pagina/page.tsx`.
 2. Añade textos en `messages/{es,en}/miPagina.json`.
 3. Registra el archivo en `i18n/request.ts`.
-4. Añade la cabecera a `messages/{es,en}/pageHero.json` bajo la clave `"mi-pagina"`.
+4. Añade `introBadge`, `introTitle` e `introSubtitle` en `messages/{es,en}/miPagina.json` bajo el namespace `MiPaginaPage`.
+5. Añade el mapeo `"mi-pagina": "MiPaginaPage"` en `components/layout/PageIntro.tsx`.
 
-El componente `PageHero` detecta automáticamente la ruta y muestra la cabecera correspondiente.
+El componente `PageIntro` detecta automáticamente la ruta y muestra la introducción correspondiente.
 
 ### Contenido MDX
 
 Los artículos largos (como *Nosotros*) se escriben en Markdown:
 
-```
 content/
 ├── es/about.mdx
 └── en/about.mdx
-```
 
 El componente `MDXContent` los renderiza con estilos de prosa ya configurados.
 
@@ -204,7 +192,7 @@ El frontend está preparado para consumir una API externa (NestJS). Cuando esté
 
 ### Convenciones de código
 
-- **Idioma de identificadores**: inglés (`navLinks`, `memberCountries`, `pageHero`).
+- **Idioma de identificadores**: inglés (`navLinks`, `memberCountries`, `pageIntro`).
 - **Idioma de textos visibles**: en `messages/{locale}/*.json` o `content/{locale}/*.mdx`.
 - **Componentes servidor por defecto**; solo `"use client"` cuando se necesite estado o hooks del navegador.
 - **Clases de Tailwind**: orden por categoría (layout → spacing → typography → colors → states).
