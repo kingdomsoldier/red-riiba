@@ -25,7 +25,10 @@ export default async function ContactPage() {
       <Container>
         {/* Intro */}
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-riiba-green-dark mb-4 leading-tight">
+  <span className="text-sm font-semibold uppercase tracking-wider text-riiba-orange mb-3 block">
+    {t("headerBadge")}
+  </span>
+  <h2 className="text-3xl lg:text-4xl font-bold text-riiba-green-dark mb-4 leading-tight">
             {t("headerTitle")}
           </h2>
           <p className="text-riiba-green-dark/70 leading-relaxed">
