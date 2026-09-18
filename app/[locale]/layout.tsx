@@ -5,7 +5,8 @@ import { getMessages } from "next-intl/server";
 import "../globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import PageHero from "@/components/layout/PageHero";   // ← NUEVO
+import PageHero from "@/components/layout/PageHero";
+import PageIntro from "@/components/layout/PageIntro";
 import { siteConfig } from "@/lib/config";
 import PageClosing from "@/components/layout/PageClosing";
 
@@ -14,7 +15,8 @@ export const metadata: Metadata = {
     default: `${siteConfig.name} | ${siteConfig.fullName}`,
     template: `%s | ${siteConfig.name}`,
   },
-  description: "Red Internacional de Investigación en Bienestar Animal. Articulamos instituciones académicas, científicas y gubernamentales bajo el enfoque «Una Sola Salud – Un Bienestar».",
+  description:
+    "Red Internacional de Investigación en Bienestar Animal. Articulamos instituciones académicas, científicas y gubernamentales bajo el enfoque «Una Sola Salud – Un Bienestar».",
 };
 
 const inter = Inter({
@@ -39,8 +41,10 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <Header />
           <main className="flex-1">
+            <PageHero />
+            <PageIntro />
             {children}
-            <PageClosing/>
+            <PageClosing />
           </main>
           <Footer />
         </NextIntlClientProvider>
