@@ -14,8 +14,7 @@ export const metadata: Metadata = {
     default: `${siteConfig.name} | ${siteConfig.fullName}`,
     template: `%s | ${siteConfig.name}`,
   },
-  description:
-    "Red universitaria de investigacion en bienestar animal. Promovemos la adopción, el cuidado y el respeto por los animales.",
+  description: "Red Internacional de Investigación en Bienestar Animal. Articulamos instituciones académicas, científicas y gubernamentales bajo el enfoque «Una Sola Salud – Un Bienestar».",
 };
 
 const inter = Inter({

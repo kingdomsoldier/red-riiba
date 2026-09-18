@@ -12,7 +12,7 @@ interface LogoProps {
 
 const imageSizes: Record<LogoSize, string> = {
   sm: "h-10 w-auto",
-  md: "h-15 w-auto",
+  md: "h-16 w-auto",   // ← antes era h-15
   lg: "h-20 w-auto",
   xl: "h-24 w-auto",
 };
