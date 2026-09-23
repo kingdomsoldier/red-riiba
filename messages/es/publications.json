@@ -1,0 +1,19 @@
+{
+  "PublicationsPage": {
+    "metaTitle": "Publicaciones",
+    "metaDescription": "Artículos, investigaciones y recursos sobre bienestar animal publicados por RED-RIIBA y sus instituciones miembros.",
+
+    "introBadge": "Conocimiento compartido",
+    "introTitle": "Publicaciones de la Red",
+    "introSubtitle": "Artículos, investigaciones y recursos sobre bienestar animal generados por nuestros miembros.",
+
+    "list": {
+      "emptyTitle": "Aún no hay publicaciones",
+      "emptyMessage": "Estamos preparando el contenido. Vuelve pronto para descubrir los artículos y recursos de la red."
+    },
+
+    "card": {
+      "noImage": "Sin imagen"
+    }
+  }
+}

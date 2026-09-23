@@ -5,12 +5,17 @@ import { usePathname } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import Container from "@/components/ui/Container";
 
-type IntroNamespace = "AboutPage" | "MembersPage" | "ContactPage";
+type IntroNamespace =
+  | "AboutPage"
+  | "MembersPage"
+  | "ContactPage"
+  | "PublicationsPage";
 
 const namespaceBySegment: Record<string, IntroNamespace> = {
   about: "AboutPage",
   members: "MembersPage",
   contact: "ContactPage",
+  publications: "PublicationsPage",
 };
 
 export default function PageIntro() {
