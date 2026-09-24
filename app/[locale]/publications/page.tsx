@@ -6,6 +6,8 @@ import PublicationsExplorer from "@/components/publications/PublicationsExplorer
 import { getPublications } from "@/lib/api/publications";
 import { mockPublications } from "@/lib/data/mockPublications";
 
+export const instant = false;
+
 const PAGE_SIZE = 12;
 const INDEXABLE_TAGS = ["news"];
 
