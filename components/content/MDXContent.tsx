@@ -1,6 +1,7 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { readFile } from "fs/promises";
 import path from "path";
+import { cacheLife, cacheTag } from "next/cache";
 
 interface MDXContentProps {
   file: string;
@@ -8,6 +9,10 @@ interface MDXContentProps {
 }
 
 export default async function MDXContent({ file, locale }: MDXContentProps) {
+  "use cache";
+  cacheLife("weeks");
+  cacheTag("mdx-content");
+
   const filePath = path.join(process.cwd(), "content", locale, `${file}.mdx`);
 
   let source: string;
