@@ -9,6 +9,7 @@ import { routing } from "@/i18n/routing";
 const languageNames: Record<string, string> = {
   es: "Español",
   en: "English",
+  fr: "Français",
 };
 
 interface LanguageSwitcherProps {

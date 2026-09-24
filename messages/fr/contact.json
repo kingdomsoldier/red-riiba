@@ -1,0 +1,46 @@
+{
+  "ContactPage": {
+    "metaTitle": "Contact",
+    "metaDescription": "Contactez-nous pour des demandes, des collaborations ou une adhésion à RED-RIIBA.",
+
+    "introBadge": "Contactez-nous",
+    "introTitle": "Entrez en contact avec nous",
+    "introSubtitle": "Remplissez le formulaire et nous vous répondrons dans les plus brefs délais. Vous pouvez également nous écrire directement par e-mail.",
+
+    "form": {
+      "name": "Nom",
+      "namePlaceholder": "Votre nom complet",
+      "email": "E-mail",
+      "emailPlaceholder": "vous@email.com",
+      "institution": "Institution / Organisation",
+      "institutionPlaceholder": "Nom de votre institution (facultatif)",
+      "subject": "Objet",
+      "subjects": {
+        "general": "Demande générale",
+        "membership": "Adhésion",
+        "collaboration": "Collaboration",
+        "press": "Presse",
+        "other": "Autre"
+      },
+      "message": "Message",
+      "messagePlaceholder": "Dites-nous comment nous pouvons vous aider...",
+      "consent": "J'accepte que mes données soient traitées conformément à la politique de confidentialité.",
+      "submit": "Envoyer le message",
+      "submitting": "Envoi en cours...",
+      "successTitle": "Message envoyé !",
+      "successMessage": "Nous avons reçu votre message. Nous vous contacterons dans les plus brefs délais.",
+      "sendAnother": "Envoyer un autre message",
+      "errorTitle": "Une erreur s'est produite",
+      "errorMessage": "Nous n'avons pas pu envoyer votre message. Veuillez réessayer plus tard."
+    },
+
+    "info": {
+      "emailLabel": "Écrivez-nous",
+      "locationLabel": "Localisation",
+      "locationValue": "Ciego de Ávila, Cuba",
+      "followLabel": "Suivez-nous",
+      "institutionsLabel": "Vous êtes une institution ?",
+      "institutionsText": "Si votre université ou centre de recherche souhaite rejoindre le réseau, écrivez-nous en indiquant votre intérêt dans l'objet."
+    }
+  }
+}

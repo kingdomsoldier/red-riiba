@@ -1,0 +1,28 @@
+{
+  "PublicationsPage": {
+    "metaTitle": "Publications et actualités",
+    "metaDescription": "Articles, recherches et actualités sur le bien-être animal publiés par RED-RIIBA et ses institutions membres.",
+
+    "introBadge": "Connaissance partagée",
+    "introTitle": "Publications et actualités du Réseau",
+    "introSubtitle": "Articles, recherches et actualités sur le bien-être animal générés par nos membres.",
+
+    "list": {
+      "emptyTitle": "Aucune publication",
+      "emptyMessage": "Nous n'avons trouvé aucune publication correspondant aux filtres sélectionnés. Essayez de modifier votre recherche.",
+      "loadMore": "Charger plus de publications",
+      "loading": "Chargement..."
+    },
+
+    "filters": {
+      "searchPlaceholder": "Rechercher par titre...",
+      "allTags": "Toutes",
+      "clear": "Effacer",
+      "noResults": "Aucun résultat pour les filtres sélectionnés."
+    },
+
+    "card": {
+      "noImage": "Sans image"
+    }
+  }
+}

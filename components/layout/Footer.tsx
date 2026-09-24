@@ -1,6 +1,5 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import Logo from "./Logo";
 import SocialLinks from "./SocialLinks";
 import RelatedLinks from "./RelatedLinks";
 import Container from "@/components/ui/Container";

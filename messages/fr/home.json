@@ -1,0 +1,46 @@
+{
+  "HomePage": {
+    "heroBadge": "Réseau International de Recherche",
+    "heroTitleLine1": "Une Seule Santé",
+    "heroTitleLine2": "Un Seul Bien-être",
+    "heroSubtitle": "Le Réseau International de Recherche sur le Bien-être Animal (RED-RIIBA) fédère des institutions académiques, scientifiques et gouvernementales de plusieurs pays pour promouvoir la recherche, la formation et la coopération internationale en matière de Bien-être Animal et de durabilité alimentaire.",
+    "heroCtaPrimary": "Découvrir le Réseau",
+    "heroCtaSecondary": "Rejoindre",
+
+    "aboutBadge": "À propos de RED-RIIBA",
+    "aboutTitle": "Un réseau académique engagé pour le bien-être animal",
+    "aboutDescription1": "Le Réseau International de Recherche en Bien-être Animal est un réseau académique et scientifique composé d'établissements d'enseignement supérieur, de centres de recherche, d'entités gouvernementales et d'organisations apparentées.",
+    "aboutDescription2": "Constitué à La Havane en février 2026, RED-RIIBA promeut des solutions interdisciplinaires et durables qui contribuent à la santé animale, à la biosécurité, à la souveraineté et à la sécurité alimentaire selon l'approche « Une Seule Santé – Un Seul Bien-être ».",
+    "aboutQuote": "\"Le bien-être animal est une composante essentielle de l'éthique sociale, de la santé publique et de la durabilité des systèmes alimentaires.\"",
+
+    "statsCountries": "Pays membres",
+    "statsInstitutions": "Institutions partenaires",
+    "statsLines": "Lignes de travail",
+    "statsFounded": "Année de fondation",
+
+    "workBadge": "Notre travail",
+    "workTitle": "Objectifs et lignes de travail",
+    "workSubtitle": "Un réseau qui recherche, forme et coopère pour transformer le bien-être animal en pratique.",
+    "workParagraph1": "RED-RIIBA structure son travail autour de six objectifs stratégiques : le renforcement scientifique, la formation des professionnels, la mobilité et les échanges entre institutions, l'information et la visibilité des résultats, la participation aux politiques publiques et la coopération au développement. Ces objectifs se concrétisent en dix lignes de recherche et de coopération qui vont du diagnostic physiologique avancé et de l'approche « Une Seule Santé – Un Seul Bien-être » à la durabilité alimentaire, l'amélioration génétique, l'ingénierie informatique appliquée et la législation en matière de bien-être animal.",
+    "workParagraph2": "Le résultat est un réseau qui non seulement recherche, mais aussi forme, diffuse, plaide et accompagne les institutions de pays tiers. Chaque ligne de travail est une porte ouverte à la collaboration académique et scientifique entre les membres.",
+    "workChipsLabel": "Domaines clés",
+    "workChips": {
+      "research": "Recherche",
+      "training": "Formation",
+      "mobility": "Mobilité",
+      "visibility": "Diffusion",
+      "policy": "Politiques publiques",
+      "cooperation": "Coopération"
+    },
+
+    "membersBadge": "Portée internationale",
+    "membersTitle": "Pays et institutions membres",
+    "membersSubtitle": "Un réseau qui connecte des universités, des centres de recherche et des entités gouvernementales d'Amérique latine, des Caraïbes et d'Afrique.",
+
+    "joinBadge": "Rejoindre le Réseau",
+    "joinTitle": "Votre institution peut faire partie de RED-RIIBA",
+    "joinSubtitle": "Nous invitons les universités, les centres de recherche et les entités gouvernementales liés au bien-être animal à rejoindre notre réseau international de coopération académique et scientifique.",
+    "joinCta": "Découvrir le processus",
+    "closingTagline": "Une Seule Santé, Un Seul Bien-être"
+  }
+}

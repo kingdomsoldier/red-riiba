@@ -1,0 +1,16 @@
+{
+  "Footer": {
+    "description": "Promouvoir le bien-être animal dans le milieu universitaire. Rejoignez notre réseau d'étudiants, d'enseignants et de bénévoles engagés dans les soins responsables des animaux.",
+    "quickLinks": "Liens rapides",
+    "relatedLinks": "Liens connexes",
+    "contact": "Contact",
+    "copyright": "© {year} {name}. Tous droits réservés.",
+    "links": {
+      "policies": "Politiques",
+      "faq": "Questions fréquentes",
+      "transparency": "Transparence",
+      "unica": "UNICA Université de Ciego de Ávila",
+      "catedra": "Chaire de Bien-être Animal"
+    }
+  }
+}

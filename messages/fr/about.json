@@ -1,0 +1,77 @@
+{
+  "AboutPage": {
+    "metaTitle": "À propos",
+    "metaDescription": "Réseau International de Recherche en Bien-être Animal. Découvrez notre mission, nos objectifs et nos domaines de recherche.",
+
+    "introBadge": "À propos du Réseau",
+    "introTitle": "Un réseau académique engagé pour le bien-être animal",
+    "introSubtitle": "Découvrez notre mission, nos objectifs et nos domaines de recherche en bien-être animal et durabilité alimentaire.",
+
+    "areasBadge": "Domaines de recherche",
+    "areasTitle": "Lignes de recherche et de coopération",
+    "areasSubtitle": "Quinze domaines stratégiques qui articulent la recherche appliquée, la formation et l'influence sur les politiques publiques de bien-être animal.",
+
+    "areas": {
+      "physiologicalDiagnosis": {
+        "title": "Diagnostics physiologiques",
+        "description": "Développement et utilisation de dispositifs avancés pour la détection des parasites gastro-intestinaux et d'autres indicateurs de santé animale."
+      },
+      "animalHealth": {
+        "title": "Santé et bien-être animal",
+        "description": "Utilisation de produits naturels selon l'approche « Une Seule Santé – Un Seul Bien-être » pour la prévention et le traitement des maladies."
+      },
+      "nutritionEducation": {
+        "title": "Éducation nutritionnelle",
+        "description": "Développement de programmes éducatifs sur la gestion et la nutrition animales."
+      },
+      "foodSustainability": {
+        "title": "Durabilité alimentaire",
+        "description": "Stratégies pour garantir la production d'aliments de haute qualité et sûrs."
+      },
+      "geneticImprovement": {
+        "title": "Amélioration génétique",
+        "description": "Recherche pour l'amélioration génétique et la création de reproducteurs résistants aux infections gastriques."
+      },
+      "reproductionBiotech": {
+        "title": "Reproduction animale et biotechnologie",
+        "description": "Techniques avancées pour améliorer l'efficacité reproductive : insémination artificielle, transfert d'embryons, cryopréservation et sélection génétique."
+      },
+      "computerEngineering": {
+        "title": "Ingénierie informatique appliquée",
+        "description": "Solutions numériques pour l'optimisation des systèmes de production, le bien-être animal et la durabilité alimentaire."
+      },
+      "waterManagement": {
+        "title": "Gestion de l'eau",
+        "description": "Conception et optimisation des systèmes d'approvisionnement et de distribution d'eau pour les animaux et l'aquaculture."
+      },
+      "wastewaterManagement": {
+        "title": "Gestion des eaux usées",
+        "description": "Systèmes de traitement dans les exploitations pour réduire la pollution et protéger les ressources en eau."
+      },
+      "predictiveModels": {
+        "title": "Modèles prédictifs et analyse de données",
+        "description": "Modèles mathématiques et analyse de données pour prédire les maladies et optimiser la production."
+      },
+      "resourceOptimization": {
+        "title": "Optimisation des ressources",
+        "description": "Algorithmes pour la gestion efficace des ressources dans les systèmes de production animale."
+      },
+      "infrastructureDesign": {
+        "title": "Conception d'infrastructures",
+        "description": "Planification d'installations adéquates pour l'hébergement et la manipulation des animaux avec des conditions de bien-être optimales."
+      },
+      "sustainableConstruction": {
+        "title": "Construction durable",
+        "description": "Matériaux et techniques écologiques compatibles dans le développement des infrastructures de production animale."
+      },
+      "socialImpact": {
+        "title": "Impact social et culturel",
+        "description": "Études sur la manière dont les pratiques inadéquates de bien-être animal affectent les communautés locales et leur économie."
+      },
+      "legislation": {
+        "title": "Législation et politiques",
+        "description": "Recherche et promotion de lois et politiques qui améliorent le bien-être animal."
+      }
+    }
+  }
+}
