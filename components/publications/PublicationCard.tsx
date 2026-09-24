@@ -1,19 +1,19 @@
 import Image from "next/image";
-import { getTranslations, getLocale } from "next-intl/server";
 import { FiCalendar, FiUser, FiImage } from "react-icons/fi";
 import { Link } from "@/i18n/navigation";
 import type { PublicationPreview } from "@/lib/types/publication";
 
 interface PublicationCardProps {
   publication: PublicationPreview;
+  locale: string;
+  noImageLabel: string;
 }
 
-export default async function PublicationCard({
+export default function PublicationCard({
   publication,
+  locale,
+  noImageLabel,
 }: PublicationCardProps) {
-  const t = await getTranslations("PublicationsPage.card");
-  const locale = await getLocale();
-
   const formattedDate = new Intl.DateTimeFormat(locale, {
     year: "numeric",
     month: "long",
@@ -39,7 +39,7 @@ export default async function PublicationCard({
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-riiba-green-dark/30">
             <FiImage size={28} />
             <span className="text-xs font-medium uppercase tracking-wider">
-              {t("noImage")}
+              {noImageLabel}
             </span>
           </div>
         )}
@@ -47,13 +47,12 @@ export default async function PublicationCard({
 
       {/* Contenido */}
       <div className="flex flex-col flex-1 p-6">
-        {/* Etiquetas */}
         {publication.tags.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-3">
             {publication.tags.slice(0, 3).map((tag) => (
               <span
                 key={tag}
-                className="text-xs font-semibold uppercase tracking-wider text-riiba-orange"
+                className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider text-riiba-orange bg-riiba-orange/10 border border-riiba-orange/30"
               >
                 {tag}
               </span>
@@ -61,17 +60,14 @@ export default async function PublicationCard({
           </div>
         )}
 
-        {/* Título */}
         <h3 className="text-lg font-bold text-riiba-green-dark mb-3 leading-snug group-hover:text-riiba-orange transition-colors">
           {publication.title}
         </h3>
 
-        {/* Resumen */}
         <p className="text-sm text-riiba-green-dark/70 leading-relaxed mb-4 line-clamp-3 flex-1">
           {publication.excerpt}
         </p>
 
-        {/* Metadatos: autor y fecha */}
         <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-riiba-green/10 text-xs text-riiba-green-dark/60">
           <span className="inline-flex items-center gap-1.5">
             <FiUser size={12} className="shrink-0" />

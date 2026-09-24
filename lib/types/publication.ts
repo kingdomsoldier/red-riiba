@@ -46,16 +46,27 @@ export interface Publication extends PublicationPreview {
 }
 
 /**
- * Respuesta del endpoint de listado.
- * Útil si más adelante añades paginación.
+ * Respuesta paginada del endpoint de listado.
+ * Es lo que devuelve GET /api/publications?page=1&limit=12&tag=news&q=...
+ *
+ * Contrato con el backend:
+ * - data: página actual de publicaciones
+ * - total: número total de publicaciones que cumplen los filtros
+ * - page: página actual (1-indexada)
+ * - limit: tamaño de página solicitado
+ * - hasMore: true si hay más páginas después de esta
  */
-export interface PublicationsListResponse {
+export interface PaginatedPublications {
   data: PublicationPreview[];
   total: number;
+  page: number;
+  limit: number;
+  hasMore: boolean;
 }
 
 /**
  * Respuesta del endpoint de detalle.
+ * Es lo que devuelve GET /api/publications/:slug.
  */
 export interface PublicationDetailResponse {
   data: Publication;

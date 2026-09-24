@@ -8,6 +8,11 @@ import Footer from "@/components/layout/Footer";
 import PageIntro from "@/components/layout/PageIntro";
 import { siteConfig } from "@/lib/config";
 import PageClosing from "@/components/layout/PageClosing";
+import { routing } from "@/i18n/routing";
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 export const metadata: Metadata = {
   title: {

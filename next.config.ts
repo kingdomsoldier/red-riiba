@@ -5,15 +5,11 @@ import createNextIntlPlugin from "next-intl/plugin";
 const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
-  // La solución: 'turbopack' es ahora una propiedad de nivel superior.
-  // Le damos a next-intl el espacio que necesita para inyectar sus alias.
+  cacheComponents: true,
   turbopack: {},
   images: {
     remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-      },
+      { protocol: "https", hostname: "images.unsplash.com" },
     ],
   },
 };

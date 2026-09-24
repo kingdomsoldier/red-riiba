@@ -1,15 +1,24 @@
 {
   "PublicationsPage": {
-    "metaTitle": "Publicaciones",
-    "metaDescription": "Artículos, investigaciones y recursos sobre bienestar animal publicados por RED-RIIBA y sus instituciones miembros.",
+    "metaTitle": "Publicaciones y noticias",
+    "metaDescription": "Artículos, investigaciones y noticias sobre bienestar animal publicados por RED-RIIBA y sus instituciones miembros.",
 
     "introBadge": "Conocimiento compartido",
-    "introTitle": "Publicaciones de la Red",
-    "introSubtitle": "Artículos, investigaciones y recursos sobre bienestar animal generados por nuestros miembros.",
+    "introTitle": "Publicaciones y noticias de la Red",
+    "introSubtitle": "Artículos, investigaciones y noticias sobre bienestar animal generados por nuestros miembros.",
 
     "list": {
-      "emptyTitle": "Aún no hay publicaciones",
-      "emptyMessage": "Estamos preparando el contenido. Vuelve pronto para descubrir los artículos y recursos de la red."
+      "emptyTitle": "No hay publicaciones",
+      "emptyMessage": "No encontramos publicaciones que coincidan con los filtros seleccionados. Prueba a cambiar la búsqueda.",
+      "loadMore": "Cargar más publicaciones",
+      "loading": "Cargando..."
+    },
+
+    "filters": {
+      "searchPlaceholder": "Buscar por título...",
+      "allTags": "Todas",
+      "clear": "Limpiar",
+      "noResults": "No hay resultados para los filtros seleccionados."
     },
 
     "card": {
