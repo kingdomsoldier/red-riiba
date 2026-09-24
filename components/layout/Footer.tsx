@@ -11,7 +11,6 @@ import Image from "next/image";
 export default function Footer() {
   const t = useTranslations("Footer");
   const tLinks = useTranslations("Footer.links");
-  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-riiba-green-dark text-white mt-auto">
@@ -27,8 +26,8 @@ export default function Footer() {
                 className="h-20 w-auto shrink-0"
               />
               <h3 className="text-sm font-semibold uppercase tracking-wider text-riiba-orange mb-4">
-              {siteConfig.fullName.toUpperCase()}
-            </h3>
+                {siteConfig.fullName.toUpperCase()}
+              </h3>
             </Link>
             <p className="mt-4 text-sm text-white/70 max-w-md leading-relaxed">
               {t("description")}
@@ -76,7 +75,7 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-white/10">
           <p className="text-xs text-white/60 text-center">
-            {t("copyright", { year: currentYear, name: siteConfig.name })}
+            {t("copyright", { year: 2026, name: siteConfig.name })}
           </p>
         </div>
       </Container>
