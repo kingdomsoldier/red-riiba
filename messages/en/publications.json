@@ -23,6 +23,9 @@
 
     "card": {
       "noImage": "No image"
+    },
+    "detail": {
+      "backToList": "Back to publications"
     }
   }
 }

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import ResearchAreas from "@/components/about/ResearchAreas";
-import MDXContent from "@/components/content/MDXContent";
+import AboutContent from "@/components/about/AboutContent";
 import Container from "@/components/ui/Container";
 
 export async function generateMetadata({
@@ -17,18 +17,12 @@ export async function generateMetadata({
   };
 }
 
-export default async function AboutPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-
+export default function AboutPage() {
   return (
     <>
       <section className="pb-16 lg:pb-24 bg-white">
         <Container size="sm">
-          <MDXContent file="about" locale={locale} />
+          <AboutContent />
         </Container>
       </section>
 

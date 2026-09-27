@@ -25,6 +25,12 @@ export default function PageIntro() {
   if (pathname === "/") return null;
   if (!segment) return null;
 
+  // En /publications solo mostramos la intro en el listado, no en el detalle
+  if (segment === "publications") {
+    const subSegments = pathname.split("/").filter(Boolean);
+    if (subSegments.length > 1) return null;
+  }
+
   const ns = namespaceBySegment[segment];
   if (!ns) return null;
 
@@ -43,9 +49,9 @@ function IntroContent({ ns }: { ns: IntroNamespace }) {
           <span className="text-sm font-semibold uppercase tracking-wider text-riiba-orange mb-3 block">
             {t("introBadge")}
           </span>
-          <h2 className="text-3xl lg:text-4xl font-bold text-riiba-green-dark mb-4 leading-tight">
+          <h1 className="text-3xl lg:text-4xl font-bold text-riiba-green-dark mb-4 leading-tight">
             {t("introTitle")}
-          </h2>
+          </h1>
           <p className="text-riiba-green-dark/70 leading-relaxed">
             {t("introSubtitle")}
           </p>

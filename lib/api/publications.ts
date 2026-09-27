@@ -1,6 +1,11 @@
 import { cacheLife, cacheTag } from "next/cache";
-import type { PaginatedPublications } from "@/lib/types/publication";
+import type {
+  PaginatedPublications,
+  Publication,
+  PublicationPreview,
+} from "@/lib/types/publication";
 import { mockPublications } from "@/lib/data/mockPublications";
+import { mockPublicationContent } from "@/lib/data/mockPublicationContent";
 
 interface GetPublicationsParams {
   page?: number;
@@ -58,6 +63,51 @@ export async function getPublications(
 }
 
 /**
+ * Obtiene una publicación completa por su slug.
+ *
+ * Estrategia:
+ * - Si NEXT_PUBLIC_API_URL está definida → fetch real al backend.
+ * - Si no → busca en el mock.
+ *
+ * Devuelve null si la publicación no existe.
+ */
+export async function getPublicationBySlug(
+  slug: string,
+  locale: string = "es"
+): Promise<Publication | null> {
+  "use cache";
+  cacheLife("hours");
+  cacheTag("publications", `publication-${slug}`);
+
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
+  // ─── Modo mock (sin backend) ─────────────────────────────
+  if (!apiUrl) {
+    const preview = mockPublications.find((p) => p.slug === slug);
+    if (!preview) return null;
+
+    const content =
+      mockPublicationContent[slug] ?? buildFallbackContent(preview);
+
+    return { ...preview, content };
+  }
+
+  // ─── Modo real (con backend) ─────────────────────────────
+  const res = await fetch(
+    `${apiUrl}/publications/${slug}?locale=${locale}`,
+    { next: { revalidate: 3600 } }
+  );
+
+  if (res.status === 404) return null;
+  if (!res.ok) {
+    throw new Error(`Error fetching publication: ${res.status}`);
+  }
+
+  const data = (await res.json()) as { data: Publication };
+  return data.data;
+}
+
+/**
  * Filtra y pagina el array de publicaciones mock.
  * Simula exactamente lo que haría el backend.
  */
@@ -90,4 +140,20 @@ function filterAndPaginate(
   const hasMore = start + limit < total;
 
   return { data, total, page, limit, hasMore };
+}
+
+/**
+ * Genera contenido de relleno para publicaciones mock que no
+ * tienen contenido MDX definido.
+ */
+function buildFallbackContent(preview: PublicationPreview): string {
+  return `
+## Resumen
+
+${preview.excerpt}
+
+## Contenido en preparación
+
+El contenido completo de esta publicación estará disponible próximamente. Mientras tanto, puedes consultar el resumen arriba o volver al listado para explorar otras publicaciones de la red.
+`.trim();
 }

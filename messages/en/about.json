@@ -7,6 +7,47 @@
     "introTitle": "An academic network committed to animal welfare",
     "introSubtitle": "Learn about our mission, objectives and research areas in animal welfare and food sustainability.",
 
+    "objective": {
+      "title": "Objective",
+      "body": "The International Animal Welfare Research Network (RED-RIIBA) has as its main objective to promote and coordinate research efforts at a global level to improve animal welfare in various production systems. Through interdisciplinary collaboration and knowledge exchange, we seek to develop innovative and sustainable solutions that contribute to animal health and welfare, as well as food security."
+    },
+
+    "mission": {
+      "title": "Mission",
+      "body": "Promote and coordinate research, training and international cooperation efforts to improve Animal Welfare in various production and coexistence systems, articulating interdisciplinary and sustainable solutions that contribute to animal health, biosecurity, sovereignty and food security under the <b>\"One Health – One Welfare\"</b> approach."
+    },
+
+    "intention": {
+      "title": "Intention",
+      "intro": "The Network's intention is to create a collaborative environment in which researchers, academics, producers, legislators and other stakeholders can work together to:",
+      "items": {
+        "diagnosticMethods": {
+          "title": "Develop advanced diagnostic methods",
+          "body": "improve tools and techniques for monitoring animal health, enabling accurate and rapid diagnoses."
+        },
+        "naturalProducts": {
+          "title": "Promote the use of natural products",
+          "body": "research and validate natural alternatives for animal care and welfare, reducing dependence on synthetic products."
+        },
+        "educationalPrograms": {
+          "title": "Implement educational programs",
+          "body": "foster education and training in animal welfare, both for farm and companion animals, and discuss issues related to food safety."
+        },
+        "sustainableProduction": {
+          "title": "Guarantee sustainable production",
+          "body": "promote sustainable agricultural practices that improve food quality and safety."
+        },
+        "geneticImprovement": {
+          "title": "Foster genetic improvement",
+          "body": "create breeding stock resistant to gastric infections to improve animal health and productivity."
+        },
+        "regulations": {
+          "title": "Establish clear and enforceable regulations",
+          "body": "advocate for effective regulations that protect animal welfare and ensure the quality of food products."
+        }
+      }
+    },
+
     "areasBadge": "Research Areas",
     "areasTitle": "Research and cooperation lines",
     "areasSubtitle": "Fifteen strategic areas that articulate applied research, training and advocacy in Animal Welfare public policies.",
