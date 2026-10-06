@@ -1,5 +1,6 @@
 "use client";
 
+import { useLayoutEffect, useRef } from "react";
 import type { TranslationStatus } from "@/lib/admin/types";
 import { t } from "@/lib/admin/i18n";
 
@@ -30,6 +31,17 @@ export default function TranslationRow({
   isEditable,
   onChange,
 }: TranslationRowProps) {
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  // Auto-resize: mide el scrollHeight real y ajusta la altura.
+  // useLayoutEffect para que ocurra antes del paint (sin flash visual).
+  useLayoutEffect(() => {
+    const el = textareaRef.current;
+    if (!el) return;
+    el.style.height = "auto";
+    el.style.height = `${el.scrollHeight}px`;
+  }, [currentValue]);
+
   return (
     <div
       className={`grid grid-cols-1 gap-3 border-b border-gray-100 p-4 last:border-0 md:grid-cols-12 md:items-start ${
@@ -62,15 +74,15 @@ export default function TranslationRow({
         </div>
       </div>
 
-      {/* Col 3: textarea editable + botón copiar */}
-      <div className="space-y-1.5 md:col-span-5">
+      {/* Col 3: textarea auto-resize */}
+      <div className="md:col-span-5">
         <textarea
+          ref={textareaRef}
           value={currentValue}
           onChange={(e) => onChange(e.target.value)}
           disabled={!isEditable}
-          rows={3}
           placeholder={t("translations.emptyValue")}
-          className="w-full resize-y rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-riiba-green-dark transition-colors focus:border-transparent focus:outline-none focus:ring-2 focus:ring-riiba-orange disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-riiba-green-dark/40"
+          className="block min-h-[3rem] w-full resize-none overflow-hidden rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm leading-relaxed text-riiba-green-dark transition-colors focus:border-transparent focus:outline-none focus:ring-2 focus:ring-riiba-orange disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-riiba-green-dark/40"
         />
       </div>
 
