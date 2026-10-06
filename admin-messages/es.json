@@ -1,9 +1,14 @@
 {
+  "header": {
+    "adminPanel": "Panel de administración",
+    "user": "Admin"
+  },
   "sidebar": {
     "dashboard": "Panel",
     "locales": "Idiomas",
     "translations": "Traducciones",
-    "settings": "Configuración"
+    "settings": "Configuración",
+    "toggle": "Menú"
   },
   "common": {
     "save": "Guardar",
@@ -24,7 +29,37 @@
   },
   "translations": {
     "title": "Editor de traducciones",
-    "comingSoon": "Próximamente"
+    "subtitle": "Selecciona un esquema y un idioma para editar las traducciones.",
+    "schemaLabel": "Esquema",
+    "localeLabel": "Idioma",
+    "selectSchema": "Selecciona un esquema",
+    "selectLocale": "Selecciona un idioma",
+    "loading": "Cargando...",
+    "errorLoading": "Error al cargar los datos",
+    "noKeys": "Este esquema no tiene claves",
+    "loadError": "Error al cargar las claves",
+    "referenceLabel": "Referencia",
+    "statuses": {
+      "PENDING": "Pendiente",
+      "TRANSLATED": "Traducido",
+      "OUTDATED": "Desactualizado"
+    },
+    "keyLabel": "Clave",
+    "statusLabel": "Estado",
+
+    "emptyValue": "—",
+    "copyFromDefault": "Copiar del idioma por defecto",
+    "dirtyRow": "Modificado",
+    "pendingChanges": "cambio(s) sin guardar",
+    "saveButton": "Guardar cambios",
+    "savingButton": "Guardando...",
+    "saveSuccess": "Cambios guardados correctamente",
+    "saveError": "Error al guardar los cambios",
+    "discardButton": "Descartar",
+
+    "searchPlaceholder": "Buscar por clave o valor...",
+    "searchClear": "Limpiar búsqueda",
+    "noMatches": "No hay claves que coincidan con la búsqueda"
   },
   "settings": {
     "ai": {
