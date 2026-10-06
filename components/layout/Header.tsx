@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import Logo from "./Logo";
 import NavLinks from "./NavLinks";
 import MobileMenu from "./MobileMenu";
@@ -6,8 +6,8 @@ import LanguageSwitcher from "./LanguageSwitcher";
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 
-export default function Header() {
-  const t = useTranslations("Common");
+export default async function Header() {
+  const t = await getTranslations("Common");
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-100">
@@ -24,7 +24,6 @@ export default function Header() {
             <MobileMenu />
             <div className="hidden lg:flex items-center gap-3">
               <Button href="/unete">{t("join")}</Button>
-              
             </div>
           </div>
         </div>

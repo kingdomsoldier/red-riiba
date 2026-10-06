@@ -1,0 +1,35 @@
+{
+  "sidebar": {
+    "dashboard": "Panel",
+    "locales": "Idiomas",
+    "translations": "Traducciones",
+    "settings": "Configuración"
+  },
+  "common": {
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "confirm": "Confirmar",
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito"
+  },
+  "dashboard": {
+    "title": "Panel de administración",
+    "welcome": "Bienvenido al panel de RED-RIIBA"
+  },
+  "locales": {
+    "title": "Idiomas",
+    "comingSoon": "Próximamente"
+  },
+  "translations": {
+    "title": "Editor de traducciones",
+    "comingSoon": "Próximamente"
+  },
+  "settings": {
+    "ai": {
+      "title": "Configuración de IA",
+      "comingSoon": "Próximamente"
+    }
+  }
+}

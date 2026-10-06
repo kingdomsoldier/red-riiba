@@ -1,15 +1,15 @@
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import Image from "next/image";
 import SocialLinks from "./SocialLinks";
 import RelatedLinks from "./RelatedLinks";
 import Container from "@/components/ui/Container";
 import { footerLinks } from "@/lib/navigation";
 import { siteConfig } from "@/lib/config";
-import Image from "next/image";
 
-export default function Footer() {
-  const t = useTranslations("Footer");
-  const tLinks = useTranslations("Footer.links");
+export default async function Footer() {
+  const t = await getTranslations("Footer");
+  const tLinks = await getTranslations("Footer.links");
 
   return (
     <footer className="bg-riiba-green-dark text-white mt-auto">

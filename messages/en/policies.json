@@ -1,0 +1,62 @@
+{
+  "PoliciesPage": {
+    "metaTitle": "Policies",
+    "metaDescription": "RED-RIIBA usage, privacy and publication policies.",
+
+    "introBadge": "Regulatory framework",
+    "introTitle": "Network Policies",
+    "introSubtitle": "Usage, data protection and publication rules governing RED-RIIBA.",
+
+    "sections": {
+      "presentation": {
+        "title": "Introduction",
+        "body": "The International Animal Welfare Research Network (RED-RIIBA) establishes the following policies in order to guarantee responsible use of the site, protect the personal data of its users and regulate the publication of scientific content under principles of transparency and academic rigor."
+      },
+      "dataProtection": {
+        "title": "Personal data protection",
+        "body": "RED-RIIBA processes personal data of its users in accordance with the principles of legality, consent, purpose and minimization. Data collected through the contact form is used exclusively to respond to inquiries and manage institutional communications.",
+        "items": {
+          "noSharing": "Data is not shared with third parties without express consent.",
+          "userRights": "Users may request access, rectification or deletion of their data by writing to the network's contact address.",
+          "retention": "Received messages are kept only for the time necessary to handle the inquiry."
+        }
+      },
+      "contentUse": {
+        "title": "Content use",
+        "body": "Content published on this site is distributed under a dual license scheme:",
+        "items": {
+          "code": "Source code: MIT License.",
+          "editorial": "Editorial content (articles, translations and documentation): Creative Commons Attribution 4.0 International License (CC BY 4.0)."
+        },
+        "footer": "This means that anyone may reuse the content by properly citing the source and maintaining the same license terms."
+      },
+      "publicationPolicy": {
+        "title": "Publication policy",
+        "body": "Publications disseminated on the site follow the network's editorial criteria:",
+        "items": {
+          "topic": "All content must be related to animal welfare, sustainability or related areas.",
+          "value": "Publications must provide academic, scientific or institutional value.",
+          "responsibility": "Authors are responsible for the accuracy of the data and for respecting third-party copyright.",
+          "reservation": "The network reserves the right to reject or withdraw publications that do not comply with these criteria."
+        }
+      },
+      "userResponsibilities": {
+        "title": "User responsibilities",
+        "body": "Users of the site agree to:",
+        "items": {
+          "legalUse": "Use the site in accordance with applicable laws and these policies.",
+          "noOffensive": "Not publish offensive, fraudulent or third-party rights-infringing content.",
+          "intellectualProperty": "Respect the intellectual property rights of the network and its members.",
+          "security": "Refrain from activities that may compromise the security of the site."
+        }
+      }
+    },
+
+    "contact": {
+      "title": "Contact",
+      "body": "For any questions related to these policies, you may write to:",
+      "email": "redriiba01@gmail.com",
+      "footer": "These policies may be updated periodically. Users are encouraged to review them regularly."
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "PoliciesPage": {
+    "metaTitle": "Politiques",
+    "metaDescription": "Politiques d'utilisation, de confidentialité et de publication de RED-RIIBA.",
+
+    "introBadge": "Cadre normatif",
+    "introTitle": "Politiques du Réseau",
+    "introSubtitle": "Règles d'utilisation, de protection des données et de publication qui régissent le fonctionnement de RED-RIIBA.",
+
+    "sections": {
+      "presentation": {
+        "title": "Présentation",
+        "body": "Le Réseau International de Recherche sur le Bien-être Animal (RED-RIIBA) établit les politiques suivantes dans le but de garantir une utilisation responsable du site, de protéger les données personnelles de ses utilisateurs et de réguler la publication de contenu scientifique selon des principes de transparence et de rigueur académique."
+      },
+      "dataProtection": {
+        "title": "Protection des données personnelles",
+        "body": "RED-RIIBA traite les données personnelles de ses utilisateurs conformément aux principes de légalité, de consentement, de finalité et de minimisation. Les données recueillies via le formulaire de contact sont utilisées exclusivement pour répondre aux demandes et gérer les communications institutionnelles.",
+        "items": {
+          "noSharing": "Les données ne sont pas partagées avec des tiers sans consentement exprès.",
+          "userRights": "L'utilisateur peut demander l'accès, la rectification ou la suppression de ses données en écrivant à l'adresse de contact du réseau.",
+          "retention": "Les messages reçus sont conservés uniquement pendant le temps nécessaire au traitement de la demande."
+        }
+      },
+      "contentUse": {
+        "title": "Utilisation du contenu",
+        "body": "Le contenu publié sur ce site est distribué sous un schéma de double licence :",
+        "items": {
+          "code": "Code source : Licence MIT.",
+          "editorial": "Contenu éditorial (articles, traductions et documentation) : Licence Creative Commons Attribution 4.0 International (CC BY 4.0)."
+        },
+        "footer": "Cela signifie que toute personne peut réutiliser le contenu en citant correctement la source et en maintenant les mêmes termes de licence."
+      },
+      "publicationPolicy": {
+        "title": "Politique de publication",
+        "body": "Les publications diffusées sur le site suivent les critères éditoriaux du réseau :",
+        "items": {
+          "topic": "Tout contenu doit être lié au bien-être animal, à la durabilité ou à des domaines connexes.",
+          "value": "Les publications doivent apporter une valeur académique, scientifique ou institutionnelle.",
+          "responsibility": "Les auteurs sont responsables de l'exactitude des données et du respect des droits d'auteur de tiers.",
+          "reservation": "Le réseau se réserve le droit de rejeter ou de retirer les publications qui ne respectent pas ces critères."
+        }
+      },
+      "userResponsibilities": {
+        "title": "Responsabilités des utilisateurs",
+        "body": "Les utilisateurs du site s'engagent à :",
+        "items": {
+          "legalUse": "Utiliser le site conformément aux lois applicables et aux présentes politiques.",
+          "noOffensive": "Ne pas publier de contenu offensant, frauduleux ou portant atteinte aux droits de tiers.",
+          "intellectualProperty": "Respecter les droits de propriété intellectuelle du réseau et de ses membres.",
+          "security": "S'abstenir de toute activité susceptible de compromettre la sécurité du site."
+        }
+      }
+    },
+
+    "contact": {
+      "title": "Contact",
+      "body": "Pour toute question relative à ces politiques, vous pouvez écrire à :",
+      "email": "redriiba01@gmail.com",
+      "footer": "Ces politiques peuvent être mises à jour périodiquement. Il est recommandé aux utilisateurs de les consulter régulièrement."
+    }
+  }
+}

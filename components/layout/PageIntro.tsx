@@ -9,13 +9,15 @@ type IntroNamespace =
   | "AboutPage"
   | "MembersPage"
   | "ContactPage"
-  | "PublicationsPage";
+  | "PublicationsPage"
+  | "PoliciesPage";
 
 const namespaceBySegment: Record<string, IntroNamespace> = {
   about: "AboutPage",
   members: "MembersPage",
   contact: "ContactPage",
   publications: "PublicationsPage",
+  policies: "PoliciesPage",
 };
 
 export default function PageIntro() {
