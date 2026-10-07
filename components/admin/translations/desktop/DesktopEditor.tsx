@@ -1,13 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import type { AdminLocale, TranslationSchemaSummary } from "@/lib/admin/types";
-import type { useTranslationEditor } from "@/lib/admin/hooks/useTranslationEditor";
+import type { Editor } from "@/lib/admin/hooks/useTranslationEditor";
 import DesktopToolbar from "./DesktopToolbar";
 import DesktopQueue from "./DesktopQueue";
 import DesktopCard from "./DesktopCard";
-
-export type Editor = ReturnType<typeof useTranslationEditor>;
 
 interface Props {
   editor: Editor;
@@ -16,11 +14,11 @@ interface Props {
 }
 
 export default function DesktopEditor({ editor, schemas, locales }: Props) {
-  // Atajos: Alt+← / Alt+→ navegan, Ctrl/Cmd+Enter guarda y avanza
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       const target = e.target as HTMLElement | null;
-      const inInput = target?.tagName === "INPUT" || target?.tagName === "TEXTAREA";
+      const inInput =
+        target?.tagName === "INPUT" || target?.tagName === "TEXTAREA";
 
       if (e.altKey && e.key === "ArrowRight") {
         e.preventDefault();
@@ -37,7 +35,7 @@ export default function DesktopEditor({ editor, schemas, locales }: Props) {
     }
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [editor]);
+  }, [editor.goNext, editor.goPrev, editor.saveAndNext]);
 
   if (editor.isLoading) {
     return (

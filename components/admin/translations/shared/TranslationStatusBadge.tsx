@@ -1,3 +1,4 @@
+import { memo } from "react";
 import {
   FiCircle,
   FiCheckCircle,
@@ -31,7 +32,7 @@ interface Props {
   compact?: boolean;
 }
 
-export default function TranslationStatusBadge({ status, compact = false }: Props) {
+function TranslationStatusBadge({ status, compact = false }: Props) {
   const { label, Icon, className } = config[status];
   return (
     <span
@@ -46,3 +47,5 @@ export default function TranslationStatusBadge({ status, compact = false }: Prop
     </span>
   );
 }
+
+export default memo(TranslationStatusBadge);

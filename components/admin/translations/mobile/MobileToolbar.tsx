@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { FiMenu, FiChevronLeft } from "react-icons/fi";
 import ProgressBar from "../shared/ProgressBar";
-import type { Editor } from "./MobileEditor";
+import type { Editor } from "@/lib/admin/hooks/useTranslationEditor";
 
 interface Props {
   editor: Editor;

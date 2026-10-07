@@ -2,7 +2,7 @@
 
 import { FiX, FiCheck } from "react-icons/fi";
 import type { AdminLocale, TranslationSchemaSummary } from "@/lib/admin/types";
-import type { Editor } from "./MobileEditor";
+import type { Editor } from "@/lib/admin/hooks/useTranslationEditor";
 import type { StatusFilter } from "@/lib/admin/hooks/useTranslationEditor";
 
 interface Props {
@@ -14,10 +14,10 @@ interface Props {
 }
 
 const FILTERS: { value: StatusFilter; label: string }[] = [
+  { value: "ALL", label: "Todas" },
   { value: "PENDING", label: "Pendientes" },
   { value: "OUTDATED", label: "Desactualizadas" },
   { value: "TRANSLATED", label: "Traducidas" },
-  { value: "ALL", label: "Todas" },
 ];
 
 export default function MobileBottomSheet({
@@ -144,21 +144,18 @@ export default function MobileBottomSheet({
             <ul className="divide-y divide-gray-100 overflow-hidden rounded-xl border border-gray-200">
               {locales.map((l) => {
                 const active = l.id === editor.localeId;
-                const isDefault = l.isDefault;
                 return (
                   <li key={l.id}>
                     <button
                       type="button"
                       onClick={() => {
-                        if (isDefault) return;
                         editor.setLocaleId(l.id);
                         onClose();
                       }}
-                      disabled={isDefault}
                       className={`flex w-full items-center justify-between px-4 py-3 text-left transition-colors ${
                         active
                           ? "bg-riiba-orange/10"
-                          : "bg-white hover:bg-gray-50 disabled:opacity-40"
+                          : "bg-white hover:bg-gray-50"
                       }`}
                     >
                       <div>
@@ -173,10 +170,12 @@ export default function MobileBottomSheet({
                         </p>
                         <p className="text-xs text-riiba-green-dark/50">
                           {l.codeIso.toUpperCase()}
-                          {isDefault && " · por defecto"}
+                          {l.isDefault && " · por defecto"}
                         </p>
                       </div>
-                      {active && <FiCheck size={18} className="text-riiba-orange" />}
+                      {active && (
+                        <FiCheck size={18} className="text-riiba-orange" />
+                      )}
                     </button>
                   </li>
                 );
@@ -191,7 +190,9 @@ export default function MobileBottomSheet({
                 {editor.pendingSync} cambio(s) pendiente(s) de sincronizar
               </p>
               {editor.syncError && (
-                <p className="mt-1 text-[11px] text-red-600">{editor.syncError}</p>
+                <p className="mt-1 text-[11px] text-red-600">
+                  {editor.syncError}
+                </p>
               )}
             </div>
           )}

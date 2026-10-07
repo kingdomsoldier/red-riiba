@@ -5,7 +5,7 @@ import { FiCopy } from "react-icons/fi";
 import TranslationInput from "../shared/TranslationInput";
 import TranslationStatusBadge from "../shared/TranslationStatusBadge";
 import CharacterCounter from "../shared/CharacterCounter";
-import type { Editor } from "./MobileEditor";
+import type { Editor } from "@/lib/admin/hooks/useTranslationEditor";
 
 interface Props {
   editor: Editor;
@@ -19,6 +19,9 @@ export default function MobileCard({ editor, hideReference }: Props) {
   const active = editor.activeKey;
 
   if (!active || !editor.targetCode || !editor.referenceCode) return null;
+
+  const isEditingDefault = editor.targetCode === editor.referenceCode;
+  const showReference = !hideReference && !isEditingDefault;
 
   const refValue = active.values[editor.referenceCode]?.value ?? "";
   const targetValue = active.values[editor.targetCode]?.value ?? "";
@@ -68,7 +71,7 @@ export default function MobileCard({ editor, hideReference }: Props) {
         <TranslationStatusBadge status={targetStatus} compact />
       </div>
 
-      {!hideReference && (
+      {showReference && (
         <div className="mb-5">
           <div className="mb-2 flex items-center justify-between">
             <span className="text-[11px] font-semibold uppercase tracking-wider text-riiba-green-dark/50">
@@ -87,24 +90,33 @@ export default function MobileCard({ editor, hideReference }: Props) {
             )}
           </div>
           <div className="rounded-xl bg-gray-100 p-3 text-sm leading-relaxed text-riiba-green-dark/80">
-            {refValue || <span className="italic text-riiba-green-dark/40">—</span>}
+            {refValue || (
+              <span className="italic text-riiba-green-dark/40">—</span>
+            )}
           </div>
         </div>
       )}
 
       <div>
         <span className="mb-2 block text-[11px] font-semibold uppercase tracking-wider text-riiba-green-dark/50">
-          Traducción ({editor.targetCode.toUpperCase()})
+          {isEditingDefault ? "Original" : "Traducción"} (
+          {editor.targetCode.toUpperCase()})
         </span>
         <TranslationInput
           value={currentValue}
           onChange={handleChange}
-          placeholder="Escribe la traducción…"
+          placeholder={
+            isEditingDefault
+              ? "Escribe el texto original…"
+              : "Escribe la traducción…"
+          }
         />
         <div className="mt-2 flex items-center justify-between">
           <CharacterCounter current={currentValue.length} />
           {isDirty && (
-            <span className="text-[11px] font-medium text-riiba-orange">Modificado</span>
+            <span className="text-[11px] font-medium text-riiba-orange">
+              Modificado
+            </span>
           )}
         </div>
       </div>

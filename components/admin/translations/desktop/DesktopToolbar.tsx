@@ -1,7 +1,7 @@
 "use client";
 
 import type { AdminLocale, TranslationSchemaSummary } from "@/lib/admin/types";
-import type { Editor } from "./DesktopEditor";
+import type { Editor } from "@/lib/admin/hooks/useTranslationEditor";
 import type { StatusFilter } from "@/lib/admin/hooks/useTranslationEditor";
 import ProgressBar from "../shared/ProgressBar";
 
@@ -12,10 +12,10 @@ interface Props {
 }
 
 const FILTERS: { value: StatusFilter; label: string }[] = [
+  { value: "ALL", label: "Todas" },
   { value: "PENDING", label: "Pendientes" },
   { value: "OUTDATED", label: "Desactualizadas" },
   { value: "TRANSLATED", label: "Traducidas" },
-  { value: "ALL", label: "Todas" },
 ];
 
 export default function DesktopToolbar({ editor, schemas, locales }: Props) {
@@ -49,7 +49,7 @@ export default function DesktopToolbar({ editor, schemas, locales }: Props) {
         </div>
 
         {/* Idioma destino */}
-        <div className="min-w-[180px]">
+        <div className="min-w-[200px]">
           <label
             htmlFor="desktop-locale"
             className="mb-1 block text-[11px] font-semibold uppercase tracking-wider text-riiba-green-dark/50"
@@ -62,13 +62,12 @@ export default function DesktopToolbar({ editor, schemas, locales }: Props) {
             onChange={(e) => editor.setLocaleId(Number(e.target.value))}
             className="w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-riiba-green-dark focus:border-transparent focus:outline-none focus:ring-2 focus:ring-riiba-orange"
           >
-            {locales
-              .filter((l) => !l.isDefault)
-              .map((l) => (
-                <option key={l.id} value={l.id}>
-                  {l.nativeName} ({l.codeIso.toUpperCase()})
-                </option>
-              ))}
+            {locales.map((l) => (
+              <option key={l.id} value={l.id}>
+                {l.nativeName} ({l.codeIso.toUpperCase()})
+                {l.isDefault ? " · por defecto" : ""}
+              </option>
+            ))}
           </select>
         </div>
 

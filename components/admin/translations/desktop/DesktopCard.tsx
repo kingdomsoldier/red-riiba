@@ -7,7 +7,7 @@ import {
   FiChevronRight,
   FiSkipForward,
 } from "react-icons/fi";
-import type { Editor } from "./DesktopEditor";
+import type { Editor } from "@/lib/admin/hooks/useTranslationEditor";
 import TranslationInput from "../shared/TranslationInput";
 import TranslationStatusBadge from "../shared/TranslationStatusBadge";
 import CharacterCounter from "../shared/CharacterCounter";
@@ -19,6 +19,8 @@ interface Props {
 export default function DesktopCard({ editor }: Props) {
   const active = editor.activeKey;
   if (!active || !editor.targetCode || !editor.referenceCode) return null;
+
+  const isEditingDefault = editor.targetCode === editor.referenceCode;
 
   const refValue = active.values[editor.referenceCode]?.value ?? "";
   const targetValue = active.values[editor.targetCode]?.value ?? "";
@@ -49,39 +51,46 @@ export default function DesktopCard({ editor }: Props) {
         <TranslationStatusBadge status={targetStatus} />
       </div>
 
-      {/* Referencia */}
-      <div>
-        <div className="mb-2 flex items-center justify-between">
-          <span className="text-[11px] font-semibold uppercase tracking-wider text-riiba-green-dark/50">
-            Referencia ({editor.referenceCode.toUpperCase()})
-          </span>
-          {refValue && (
-            <button
-              type="button"
-              onClick={handleCopyReference}
-              className="flex items-center gap-1 rounded-md px-2 py-1 text-[11px] font-medium text-riiba-orange hover:bg-riiba-orange/10"
-            >
-              <FiCopy size={12} />
-              Copiar a traducción
-            </button>
-          )}
+      {/* Referencia — solo si el destino no es el idioma por defecto */}
+      {!isEditingDefault && (
+        <div>
+          <div className="mb-2 flex items-center justify-between">
+            <span className="text-[11px] font-semibold uppercase tracking-wider text-riiba-green-dark/50">
+              Referencia ({editor.referenceCode.toUpperCase()})
+            </span>
+            {refValue && (
+              <button
+                type="button"
+                onClick={handleCopyReference}
+                className="flex items-center gap-1 rounded-md px-2 py-1 text-[11px] font-medium text-riiba-orange hover:bg-riiba-orange/10"
+              >
+                <FiCopy size={12} />
+                Copiar a traducción
+              </button>
+            )}
+          </div>
+          <div className="rounded-xl bg-gray-100 p-4 text-sm leading-relaxed text-riiba-green-dark/80">
+            {refValue || (
+              <span className="italic text-riiba-green-dark/40">—</span>
+            )}
+          </div>
         </div>
-        <div className="rounded-xl bg-gray-100 p-4 text-sm leading-relaxed text-riiba-green-dark/80">
-          {refValue || (
-            <span className="italic text-riiba-green-dark/40">—</span>
-          )}
-        </div>
-      </div>
+      )}
 
-      {/* Traducción */}
+      {/* Editor */}
       <div>
         <span className="mb-2 block text-[11px] font-semibold uppercase tracking-wider text-riiba-green-dark/50">
-          Traducción ({editor.targetCode.toUpperCase()})
+          {isEditingDefault ? "Original" : "Traducción"} (
+          {editor.targetCode.toUpperCase()})
         </span>
         <TranslationInput
           value={currentValue}
           onChange={handleChange}
-          placeholder="Escribe la traducción…"
+          placeholder={
+            isEditingDefault
+              ? "Escribe el texto original…"
+              : "Escribe la traducción…"
+          }
           autoFocus
         />
         <div className="mt-2 flex items-center justify-between">

@@ -1,8 +1,60 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import type { Editor } from "./DesktopEditor";
+import { memo, useEffect, useRef } from "react";
+import type { Editor } from "@/lib/admin/hooks/useTranslationEditor";
+import type { TranslationStatus } from "@/lib/admin/types";
 import TranslationStatusBadge from "../shared/TranslationStatusBadge";
+
+interface QueueItemProps {
+  keyName: string;
+  status: TranslationStatus;
+  isActive: boolean;
+  isDirty: boolean;
+  index: number;
+  onSelect: (index: number) => void;
+}
+
+const QueueItem = memo(function QueueItem({
+  keyName,
+  status,
+  isActive,
+  isDirty,
+  index,
+  onSelect,
+}: QueueItemProps) {
+  return (
+    <li>
+      <button
+        type="button"
+        data-active={isActive}
+        onClick={() => onSelect(index)}
+        aria-current={isActive ? "true" : undefined}
+        className={`flex w-full items-center justify-between gap-2 px-4 py-2.5 text-left transition-colors ${
+          isActive ? "bg-riiba-orange/10" : "hover:bg-gray-50"
+        }`}
+      >
+        <div className="flex min-w-0 items-center gap-2">
+          {isDirty && (
+            <span
+              aria-label="Modificado"
+              className="h-1.5 w-1.5 shrink-0 rounded-full bg-riiba-orange"
+            />
+          )}
+          <code
+            className={`truncate text-xs ${
+              isActive
+                ? "font-semibold text-riiba-orange"
+                : "text-riiba-green-dark/80"
+            }`}
+          >
+            {keyName}
+          </code>
+        </div>
+        <TranslationStatusBadge status={status} compact />
+      </button>
+    </li>
+  );
+});
 
 interface Props {
   editor: Editor;
@@ -10,8 +62,8 @@ interface Props {
 
 export default function DesktopQueue({ editor }: Props) {
   const listRef = useRef<HTMLUListElement>(null);
+  const targetCode = editor.targetCode ?? "";
 
-  // Auto-scroll a la clave activa cuando cambia por teclado
   useEffect(() => {
     const list = listRef.current;
     if (!list) return;
@@ -31,44 +83,17 @@ export default function DesktopQueue({ editor }: Props) {
         ref={listRef}
         className="max-h-[calc(100vh-6rem)] overflow-y-auto py-1"
       >
-        {editor.queue.map((entry, index) => {
-          const isActive = index === editor.activeIndex;
-          const status = entry.values[editor.targetCode ?? ""]?.status ?? "PENDING";
-          const isDirty = editor.pending.has(entry.id);
-
-          return (
-            <li key={entry.id}>
-              <button
-                type="button"
-                data-active={isActive}
-                onClick={() => editor.goTo(index)}
-                aria-current={isActive ? "true" : undefined}
-                className={`flex w-full items-center justify-between gap-2 px-4 py-2.5 text-left transition-colors ${
-                  isActive ? "bg-riiba-orange/10" : "hover:bg-gray-50"
-                }`}
-              >
-                <div className="flex min-w-0 items-center gap-2">
-                  {isDirty && (
-                    <span
-                      aria-label="Modificado"
-                      className="h-1.5 w-1.5 shrink-0 rounded-full bg-riiba-orange"
-                    />
-                  )}
-                  <code
-                    className={`truncate text-xs ${
-                      isActive
-                        ? "font-semibold text-riiba-orange"
-                        : "text-riiba-green-dark/80"
-                    }`}
-                  >
-                    {entry.key}
-                  </code>
-                </div>
-                <TranslationStatusBadge status={status} compact />
-              </button>
-            </li>
-          );
-        })}
+        {editor.queue.map((entry, index) => (
+          <QueueItem
+            key={entry.id}
+            keyName={entry.key}
+            status={entry.values[targetCode]?.status ?? "PENDING"}
+            isActive={index === editor.activeIndex}
+            isDirty={editor.pending.has(entry.id)}
+            index={index}
+            onSelect={editor.goTo}
+          />
+        ))}
       </ul>
     </aside>
   );

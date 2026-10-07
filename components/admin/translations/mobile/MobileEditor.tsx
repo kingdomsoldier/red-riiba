@@ -2,13 +2,11 @@
 
 import { useEffect, useState } from "react";
 import type { AdminLocale, TranslationSchemaSummary } from "@/lib/admin/types";
-import type { useTranslationEditor } from "@/lib/admin/hooks/useTranslationEditor";
+import type { Editor } from "@/lib/admin/hooks/useTranslationEditor";
 import MobileToolbar from "./MobileToolbar";
 import MobileCard from "./MobileCard";
 import MobileActionBar from "./MobileActionBar";
 import MobileBottomSheet from "./MobileBottomSheet";
-
-export type Editor = ReturnType<typeof useTranslationEditor>;
 
 interface Props {
   editor: Editor;

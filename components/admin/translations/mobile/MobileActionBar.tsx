@@ -1,7 +1,13 @@
 "use client";
 
-import { FiChevronLeft, FiChevronRight, FiSkipForward, FiCpu, FiCheck } from "react-icons/fi";
-import type { Editor } from "./MobileEditor";
+import {
+  FiChevronLeft,
+  FiChevronRight,
+  FiSkipForward,
+  FiCpu,
+  FiCheck,
+} from "react-icons/fi";
+import type { Editor } from "@/lib/admin/hooks/useTranslationEditor";
 
 interface Props {
   editor: Editor;
