@@ -29,37 +29,91 @@
   },
   "translations": {
     "title": "Editor de traducciones",
-    "subtitle": "Selecciona un esquema y un idioma para editar las traducciones.",
-    "schemaLabel": "Esquema",
-    "localeLabel": "Idioma",
-    "selectSchema": "Selecciona un esquema",
-    "selectLocale": "Selecciona un idioma",
-    "loading": "Cargando...",
+    "subtitle": "Traduce las claves del sistema de forma secuencial. Los cambios se guardan automáticamente.",
+
+    "loading": "Cargando traducciones…",
     "errorLoading": "Error al cargar los datos",
-    "noKeys": "Este esquema no tiene claves",
     "loadError": "Error al cargar las claves",
-    "referenceLabel": "Referencia",
+    "noKeys": "No hay claves para este filtro",
+    "noKeysHint": "Prueba a cambiar el filtro o el idioma.",
+
+    "filters": {
+      "label": "Estado",
+      "all": "Todas",
+      "pending": "Pendientes",
+      "outdated": "Desactualizadas",
+      "translated": "Traducidas"
+    },
+
     "statuses": {
       "PENDING": "Pendiente",
       "TRANSLATED": "Traducido",
-      "OUTDATED": "Desactualizado"
+      "OUTDATED": "Desactualizado",
+      "SYNCING": "Sincronizando",
+      "SYNC_ERROR": "Error de sync",
+      "AI": "Sugerido por IA"
     },
-    "keyLabel": "Clave",
-    "statusLabel": "Estado",
 
-    "emptyValue": "—",
-    "copyFromDefault": "Copiar del idioma por defecto",
-    "dirtyRow": "Modificado",
-    "pendingChanges": "cambio(s) sin guardar",
-    "saveButton": "Guardar cambios",
-    "savingButton": "Guardando...",
-    "saveSuccess": "Cambios guardados correctamente",
-    "saveError": "Error al guardar los cambios",
-    "discardButton": "Descartar",
+    "schema": {
+      "label": "Esquema"
+    },
 
-    "searchPlaceholder": "Buscar por clave o valor...",
-    "searchClear": "Limpiar búsqueda",
-    "noMatches": "No hay claves que coincidan con la búsqueda"
+    "locale": {
+      "label": "Idioma destino",
+      "defaultTag": "por defecto"
+    },
+
+    "search": {
+      "label": "Buscar",
+      "placeholder": "Clave o valor…"
+    },
+
+    "card": {
+      "referenceLabel": "Referencia",
+      "translationLabel": "Traducción",
+      "copyReference": "Copiar",
+      "copyReferenceLong": "Copiar a traducción",
+      "modified": "Modificado",
+      "unsaved": "Sin guardar",
+      "placeholder": "Escribe la traducción…",
+      "emptyValue": "—",
+      "position": "{current} de {total}",
+      "expand": "Expandir",
+      "collapse": "Contraer"
+    },
+
+    "actions": {
+      "previous": "Anterior",
+      "next": "Siguiente",
+      "save": "Guardar",
+      "saveAndNext": "Guardar y siguiente",
+      "skip": "Saltar",
+      "suggestAI": "Sugerir IA",
+      "discard": "Descartar",
+      "openMenu": "Abrir menú",
+      "backToPanel": "Volver al panel"
+    },
+
+    "shortcuts": {
+      "saveAndNext": "Ctrl+↵"
+    },
+
+    "progress": {
+      "label": "{current}/{total} · {percent}%"
+    },
+
+    "sync": {
+      "pending": "{count} sincronizando…",
+      "pendingMobile": "{count}",
+      "ariaLabel": "{count} cambios pendientes de sincronizar",
+      "errorHint": "Los cambios se reintentarán automáticamente."
+    },
+
+    "sheet": {
+      "title": "Ajustes",
+      "close": "Cerrar",
+      "backdropLabel": "Cerrar menú"
+    }
   },
   "settings": {
     "ai": {
