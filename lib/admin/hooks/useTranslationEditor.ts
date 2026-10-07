@@ -3,15 +3,16 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import type {
   AdminLocale,
-  BulkUpdateResponse,
   TranslationKeyEntry,
   TranslationKeysResponse,
   TranslationSchemaSummary,
+  TranslationStatus,
 } from "@/lib/admin/types";
 import { adminFetch } from "@/lib/admin/api-client";
 import { revalidateTranslations } from "@/lib/admin/actions";
+import { syncQueue } from "@/lib/admin/syncQueue";
 
-type SaveStatus = "idle" | "saving" | "success" | "error";
+export type StatusFilter = TranslationStatus | "ALL";
 
 export function useTranslationEditor(
   schemas: TranslationSchemaSummary[],
@@ -20,30 +21,38 @@ export function useTranslationEditor(
   const defaultLocale = locales.find((l) => l.isDefault);
   const firstEditable = locales.find((l) => !l.isDefault) ?? defaultLocale;
 
-  const [schemaId, setSchemaId] = useState<number | null>(
-    schemas[0]?.id ?? null,
-  );
-  const [localeId, setLocaleId] = useState<number | null>(
-    firstEditable?.id ?? null,
-  );
+  const [schemaId, setSchemaId] = useState<number | null>(schemas[0]?.id ?? null);
+  const [localeId, setLocaleId] = useState<number | null>(firstEditable?.id ?? null);
 
   const [keys, setKeys] = useState<TranslationKeyEntry[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [loadError, setLoadError] = useState<string | null>(null);
 
   const [query, setQuery] = useState("");
+  const [filter, setFilter] = useState<StatusFilter>("PENDING");
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  const [pending, setPending] = useState<Map<number, string>>(new Map());
-  const [saveStatus, setSaveStatus] = useState<SaveStatus>("idle");
-  const [saveError, setSaveError] = useState<string | null>(null);
+  const [pending, setPending] = useState<
+    Map<number, { valueId: number | null; value: string }>
+  >(new Map());
+
+  const [pendingSync, setPendingSync] = useState(0);
+  const [syncError, setSyncError] = useState<string | null>(null);
 
   const targetLocale = locales.find((l) => l.id === localeId);
   const referenceLocale = defaultLocale;
-
   const targetCode = targetLocale?.codeIso;
   const referenceCode = referenceLocale?.codeIso;
 
-  // ─── Carga de claves ──────────────────────────────────────
+  // Suscripción a la cola de sync
+  useEffect(() => {
+    return syncQueue.subscribe((count, err) => {
+      setPendingSync(count);
+      setSyncError(err);
+    });
+  }, []);
+
+  // Carga de claves
   useEffect(() => {
     if (!schemaId || !targetCode || !referenceCode) return;
 
@@ -55,18 +64,16 @@ export function useTranslationEditor(
       setKeys([]);
       setPending(new Map());
       setQuery("");
-      setSaveStatus("idle");
+      setActiveIndex(0);
 
       try {
-        const queryStr = `?locales=${referenceCode},${targetCode}`;
+        const q = `?locales=${referenceCode},${targetCode}`;
         const data = await adminFetch<TranslationKeysResponse>(
-          `/admin/translation-schemas/${schemaId}/keys${queryStr}`,
+          `/admin/translation-schemas/${schemaId}/keys${q}`,
         );
         if (!cancelled) setKeys(data.keys);
       } catch (e) {
-        if (!cancelled) {
-          setLoadError(e instanceof Error ? e.message : "Error");
-        }
+        if (!cancelled) setLoadError(e instanceof Error ? e.message : "Error");
       } finally {
         if (!cancelled) setIsLoading(false);
       }
@@ -77,150 +84,152 @@ export function useTranslationEditor(
     };
   }, [schemaId, targetCode, referenceCode]);
 
-  // ─── Filtro ───────────────────────────────────────────────
-  const filteredKeys = useMemo(() => {
+  // Cola filtrada
+  const queue = useMemo(() => {
+    if (!targetCode) return [];
     const q = query.trim().toLowerCase();
-    if (!q) return keys;
-    if (!referenceCode || !targetCode) return keys;
 
     return keys.filter((entry) => {
+      const status: TranslationStatus =
+        entry.values[targetCode]?.status ?? "PENDING";
+
+      if (filter !== "ALL" && status !== filter) return false;
+      if (!q) return true;
+
       if (entry.key.toLowerCase().includes(q)) return true;
-
-      const refVal = entry.values[referenceCode]?.value;
-      if (refVal && refVal.toLowerCase().includes(q)) return true;
-
+      const refVal = entry.values[referenceCode ?? ""]?.value;
+      if (refVal?.toLowerCase().includes(q)) return true;
       const targetVal = entry.values[targetCode]?.value;
-      if (targetVal && targetVal.toLowerCase().includes(q)) return true;
+      if (targetVal?.toLowerCase().includes(q)) return true;
 
       return false;
     });
-  }, [keys, query, referenceCode, targetCode]);
+  }, [keys, query, filter, targetCode, referenceCode]);
 
-  // ─── Aviso al cerrar/recargar con cambios sin guardar ─────
+  const activeKey = queue[activeIndex] ?? null;
+
   useEffect(() => {
-    if (pending.size === 0) return;
-
-    function handler(e: BeforeUnloadEvent) {
-      e.preventDefault();
-      e.returnValue = "";
+    if (activeIndex >= queue.length) {
+      setActiveIndex(Math.max(0, queue.length - 1));
     }
+  }, [queue.length, activeIndex]);
 
-    window.addEventListener("beforeunload", handler);
-    return () => window.removeEventListener("beforeunload", handler);
-  }, [pending.size]);
-
-  // ─── Auto-dismiss del toast de éxito ──────────────────────
-  useEffect(() => {
-    if (saveStatus !== "success") return;
-    const timer = setTimeout(() => setSaveStatus("idle"), 3000);
-    return () => clearTimeout(timer);
-  }, [saveStatus]);
-
-  // ─── Handlers ─────────────────────────────────────────────
-  const handleChange = useCallback((valueId: number, value: string) => {
-    setPending((prev) => {
-      const next = new Map(prev);
-      next.set(valueId, value);
-      return next;
-    });
-    setSaveStatus("idle");
-    setSaveError(null);
-  }, []);
-
-  const handleDiscard = useCallback(() => {
-    setPending(new Map());
-    setSaveStatus("idle");
-    setSaveError(null);
-  }, []);
-
-  const handleSave = useCallback(async () => {
-    if (pending.size === 0) return;
-
-    const snapshot = new Map(pending);
-
-    setSaveStatus("saving");
-    setSaveError(null);
-
-    try {
-      const updates = Array.from(snapshot.entries()).map(([id, value]) => ({
-        id,
-        value,
-      }));
-
-      await adminFetch<BulkUpdateResponse>("/admin/translation-values/bulk", {
-        method: "PATCH",
-        body: JSON.stringify({ updates }),
-      });
-
-      // ─── Invalidar cache del sitio público ────────────────
-      // Server Action: corre en el servidor, ejecuta updateTag.
-      // Se invalidan el locale destino y el de referencia, porque
-      // el backend aplica fallback del default: si una clave en "fr"
-      // está vacía, el sitio sirve el valor de "es". Editar "es" por
-      // tanto puede cambiar lo que se muestra en "fr".
-      const localesToInvalidate = [targetCode, referenceCode].filter(
-        (c): c is string => typeof c === "string",
-      );
-
-      try {
-        await revalidateTranslations(localesToInvalidate);
-      } catch (err) {
-        // Fallo blando: el save ya está en la DB. Solo logueamos.
-        console.warn("[revalidate] Server Action falló:", err);
-      }
-
+  const handleChange = useCallback(
+    (keyId: number, value: string) => {
+      const entry = keys.find((k) => k.id === keyId);
+      const valueId = entry?.values[targetCode ?? ""]?.id ?? null;
       setPending((prev) => {
         const next = new Map(prev);
-        for (const [id, value] of snapshot) {
-          if (next.get(id) === value) next.delete(id);
-        }
+        next.set(keyId, { valueId, value });
         return next;
       });
+    },
+    [keys, targetCode],
+  );
 
-      if (schemaId && targetCode && referenceCode) {
-        const q = `?locales=${referenceCode},${targetCode}`;
-        const data = await adminFetch<TranslationKeysResponse>(
-          `/admin/translation-schemas/${schemaId}/keys${q}`,
-        );
-        setKeys(data.keys);
-      }
+  const handleDiscardActive = useCallback(() => {
+    if (!activeKey) return;
+    setPending((prev) => {
+      const next = new Map(prev);
+      next.delete(activeKey.id);
+      return next;
+    });
+  }, [activeKey]);
 
-      setSaveStatus("success");
-    } catch (e) {
-      setSaveStatus("error");
-      setSaveError(e instanceof Error ? e.message : "Error desconocido");
+  const goNext = useCallback(() => {
+    setActiveIndex((i) => Math.min(i + 1, Math.max(0, queue.length - 1)));
+  }, [queue.length]);
+
+  const goPrev = useCallback(() => {
+    setActiveIndex((i) => Math.max(i - 1, 0));
+  }, []);
+
+  const goTo = useCallback((index: number) => {
+    setActiveIndex(index);
+  }, []);
+
+  const skip = useCallback(() => {
+    if (queue.length === 0) return;
+    setActiveIndex((i) => (i < queue.length - 1 ? i + 1 : 0));
+  }, [queue.length]);
+
+  const saveActive = useCallback(() => {
+    if (!activeKey || !targetCode || !localeId) return;
+    const entry = pending.get(activeKey.id);
+    if (!entry) return;
+
+    syncQueue.enqueue({
+      keyId: activeKey.id,
+      valueId: entry.valueId,
+      localeId,
+      value: entry.value,
+    });
+
+    // Optimistic UI
+    setKeys((prev) =>
+      prev.map((k) =>
+        k.id === activeKey.id
+          ? {
+              ...k,
+              values: {
+                ...k.values,
+                [targetCode]: {
+                  id: entry.valueId,
+                  value: entry.value,
+                  status: "TRANSLATED" as TranslationStatus,
+                  isAiGenerated: false,
+                },
+              },
+            }
+          : k,
+      ),
+    );
+
+    setPending((prev) => {
+      const next = new Map(prev);
+      next.delete(activeKey.id);
+      return next;
+    });
+  }, [activeKey, pending, targetCode, localeId]);
+
+  const saveAndNext = useCallback(() => {
+    saveActive();
+    goNext();
+    if (typeof navigator !== "undefined" && "vibrate" in navigator) {
+      navigator.vibrate?.(10);
     }
-  }, [pending, schemaId, targetCode, referenceCode]);
+  }, [saveActive, goNext]);
+
+  // Autoguardado a 3s
+  useEffect(() => {
+    if (!activeKey) return;
+    if (!pending.has(activeKey.id)) return;
+    const timer = setTimeout(() => saveActive(), 3000);
+    return () => clearTimeout(timer);
+  }, [pending, activeKey, saveActive]);
+
+  // Revalidación de cache del sitio público
+  useEffect(() => {
+    if (pendingSync > 0) return;
+    const codes = [targetCode, referenceCode].filter(
+      (c): c is string => typeof c === "string",
+    );
+    if (codes.length === 0) return;
+    void revalidateTranslations(codes).catch(() => {});
+  }, [pendingSync, targetCode, referenceCode]);
 
   return {
-    // Selectores
-    schemaId,
-    setSchemaId,
-    localeId,
-    setLocaleId,
-
-    // Locales derivados
-    targetLocale,
-    referenceLocale,
-
-    // Datos
-    keys,
-    filteredKeys,
-    isLoading,
-    loadError,
-
-    // Filtro
-    query,
-    setQuery,
-    isFiltering: query.trim().length > 0,
-
-    // Pending y save
-    pending,
-    hasPending: pending.size > 0,
-    saveStatus,
-    saveError,
-    handleChange,
-    handleDiscard,
-    handleSave,
+    schemaId, setSchemaId,
+    localeId, setLocaleId,
+    targetLocale, referenceLocale, targetCode, referenceCode,
+    keys, queue, activeKey, activeIndex,
+    isLoading, loadError,
+    query, setQuery,
+    filter, setFilter,
+    pending, hasPending: pending.size > 0,
+    pendingSync, syncError,
+    handleChange, handleDiscardActive,
+    saveActive, saveAndNext,
+    goNext, goPrev, goTo, skip,
   };
 }
