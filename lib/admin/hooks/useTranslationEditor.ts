@@ -9,6 +9,7 @@ import type {
   TranslationSchemaSummary,
 } from "@/lib/admin/types";
 import { adminFetch } from "@/lib/admin/api-client";
+import { revalidateTranslations } from "@/lib/admin/actions";
 
 type SaveStatus = "idle" | "saving" | "success" | "error";
 
@@ -150,6 +151,23 @@ export function useTranslationEditor(
         method: "PATCH",
         body: JSON.stringify({ updates }),
       });
+
+      // ─── Invalidar cache del sitio público ────────────────
+      // Server Action: corre en el servidor, ejecuta updateTag.
+      // Se invalidan el locale destino y el de referencia, porque
+      // el backend aplica fallback del default: si una clave en "fr"
+      // está vacía, el sitio sirve el valor de "es". Editar "es" por
+      // tanto puede cambiar lo que se muestra en "fr".
+      const localesToInvalidate = [targetCode, referenceCode].filter(
+        (c): c is string => typeof c === "string",
+      );
+
+      try {
+        await revalidateTranslations(localesToInvalidate);
+      } catch (err) {
+        // Fallo blando: el save ya está en la DB. Solo logueamos.
+        console.warn("[revalidate] Server Action falló:", err);
+      }
 
       setPending((prev) => {
         const next = new Map(prev);
