@@ -6,6 +6,8 @@ import type {
 import TranslationEditor from "@/components/admin/translations/TranslationEditor";
 import { t } from "@/lib/admin/i18n";
 
+export const instant = false;
+
 export default async function AdminTranslationsPage() {
   let schemas: TranslationSchemaSummary[] = [];
   let locales: AdminLocale[] = [];
